@@ -1,0 +1,69 @@
+{
+  "test_date": "2026-10-14",
+  "environment": "Physical Android device; Flutter profile; actual authenticated Firestore client",
+  "query_description": "Active posts ordered by createdAt and document ID, first page, limit 20, Source.server",
+  "protocol": "1 first query, 3 warmups, 30 measured queries; one second after each completed Flutter frame",
+  "total_queries": 34,
+  "response_document_counts": [
+    4
+  ],
+  "stable_document_count": true,
+  "cached_responses": 0,
+  "first_query_ms": 2412.793,
+  "first_query_to_frame_ms": 2420.483,
+  "query_response": {
+    "samples": 30,
+    "median_ms": 524.526,
+    "p95_ms": 547.677,
+    "mean_ms": 514.313,
+    "min_ms": 422.164,
+    "max_ms": 602.893
+  },
+  "model_decoding": {
+    "samples": 30,
+    "median_ms": 0.068,
+    "p95_ms": 0.126,
+    "mean_ms": 0.084,
+    "min_ms": 0.035,
+    "max_ms": 0.262
+  },
+  "load_to_flutter_frame": {
+    "samples": 30,
+    "median_ms": 531.306,
+    "p95_ms": 559.274,
+    "mean_ms": 523.934,
+    "min_ms": 430.758,
+    "max_ms": 615.361
+  },
+  "after_load_to_flutter_frame": {
+    "samples": 30,
+    "median_ms": 9.512,
+    "p95_ms": 13.673,
+    "mean_ms": 9.228,
+    "min_ms": 3.488,
+    "max_ms": 13.887
+  },
+  "limitations": [
+    "Client-observed SDK query duration includes network and SDK overhead; not isolated server execution time.",
+    "Frame completion uses addPostFrameCallback; it does not measure raster completion or physical display latency.",
+    "No previous-version server benchmark was run; no speed improvement percentage is established.",
+    "No application content, account identifiers or tokens are stored in these metrics."
+  ],
+  "device": {
+    "model": "SM-S931N",
+    "android": "16",
+    "api_level": 36,
+    "abi": "arm64-v8a",
+    "build_mode": "profile",
+    "app_version": "1.0.0+6"
+  },
+  "measured_apk_sha256": "58d2e437d1ce9b341a86dc853ae0ebc26e18239b7f83f91659766839a09cf06e",
+  "source_state": "Working tree based on f273fd8 with existing local changes and opt-in latency instrumentation",
+  "final_device_state": {
+    "app_version": "1.0.0+6",
+    "build_mode": "profile",
+    "measurement_probe_enabled": false,
+    "installed_with_data_preserved": true,
+    "normal_apk_sha256": "39b364fca1940c5639bdd2ac7c8dc4eb145d037000e5dbc8532f7915038ffe00"
+  }
+}

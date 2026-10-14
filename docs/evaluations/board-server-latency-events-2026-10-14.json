@@ -1,0 +1,614 @@
+[
+  {
+    "event": "query",
+    "sample": 1,
+    "query_us": 2412793,
+    "decode_us": 303,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 1,
+    "load_us": 2413278,
+    "first_frame_us": 2420483,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 2,
+    "query_us": 495660,
+    "decode_us": 53,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 2,
+    "load_us": 495910,
+    "first_frame_us": 503343,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 3,
+    "query_us": 515492,
+    "decode_us": 66,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 3,
+    "load_us": 515801,
+    "first_frame_us": 522581,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 4,
+    "query_us": 538141,
+    "decode_us": 120,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 4,
+    "load_us": 538594,
+    "first_frame_us": 552076,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 5,
+    "query_us": 515998,
+    "decode_us": 67,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 5,
+    "load_us": 516394,
+    "first_frame_us": 529224,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 6,
+    "query_us": 505478,
+    "decode_us": 35,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 6,
+    "load_us": 505759,
+    "first_frame_us": 509247,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 7,
+    "query_us": 547677,
+    "decode_us": 91,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 7,
+    "load_us": 548049,
+    "first_frame_us": 559274,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 8,
+    "query_us": 526653,
+    "decode_us": 57,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 8,
+    "load_us": 526981,
+    "first_frame_us": 540868,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 9,
+    "query_us": 504287,
+    "decode_us": 60,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 9,
+    "load_us": 504618,
+    "first_frame_us": 513057,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 10,
+    "query_us": 431250,
+    "decode_us": 81,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 10,
+    "load_us": 431620,
+    "first_frame_us": 440306,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 11,
+    "query_us": 522879,
+    "decode_us": 60,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 11,
+    "load_us": 523314,
+    "first_frame_us": 528986,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 12,
+    "query_us": 526804,
+    "decode_us": 79,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 12,
+    "load_us": 527368,
+    "first_frame_us": 531232,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 13,
+    "query_us": 529690,
+    "decode_us": 79,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 13,
+    "load_us": 530053,
+    "first_frame_us": 539784,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 14,
+    "query_us": 526320,
+    "decode_us": 61,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 14,
+    "load_us": 526775,
+    "first_frame_us": 533739,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 15,
+    "query_us": 526515,
+    "decode_us": 120,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 15,
+    "load_us": 526941,
+    "first_frame_us": 537071,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 16,
+    "query_us": 528739,
+    "decode_us": 59,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 16,
+    "load_us": 529108,
+    "first_frame_us": 539922,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 17,
+    "query_us": 521172,
+    "decode_us": 58,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 17,
+    "load_us": 521463,
+    "first_frame_us": 531871,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 18,
+    "query_us": 526172,
+    "decode_us": 61,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 18,
+    "load_us": 526496,
+    "first_frame_us": 531379,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 19,
+    "query_us": 422164,
+    "decode_us": 60,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 19,
+    "load_us": 422455,
+    "first_frame_us": 430758,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 20,
+    "query_us": 463948,
+    "decode_us": 79,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 20,
+    "load_us": 464354,
+    "first_frame_us": 476687,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 21,
+    "query_us": 481052,
+    "decode_us": 60,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 21,
+    "load_us": 481457,
+    "first_frame_us": 486937,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 22,
+    "query_us": 538549,
+    "decode_us": 123,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 22,
+    "load_us": 538994,
+    "first_frame_us": 552667,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 23,
+    "query_us": 516192,
+    "decode_us": 94,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 23,
+    "load_us": 516569,
+    "first_frame_us": 528948,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 24,
+    "query_us": 530924,
+    "decode_us": 122,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 24,
+    "load_us": 531386,
+    "first_frame_us": 541617,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 25,
+    "query_us": 512125,
+    "decode_us": 262,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 25,
+    "load_us": 512700,
+    "first_frame_us": 521196,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 26,
+    "query_us": 522772,
+    "decode_us": 61,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 26,
+    "load_us": 523088,
+    "first_frame_us": 529078,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 27,
+    "query_us": 531567,
+    "decode_us": 59,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 27,
+    "load_us": 531876,
+    "first_frame_us": 540108,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 28,
+    "query_us": 529488,
+    "decode_us": 95,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 28,
+    "load_us": 529911,
+    "first_frame_us": 542957,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 29,
+    "query_us": 521517,
+    "decode_us": 68,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 29,
+    "load_us": 522020,
+    "first_frame_us": 528098,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 30,
+    "query_us": 535445,
+    "decode_us": 123,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 30,
+    "load_us": 535872,
+    "first_frame_us": 542469,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 31,
+    "query_us": 438301,
+    "decode_us": 96,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 31,
+    "load_us": 438689,
+    "first_frame_us": 447983,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 32,
+    "query_us": 602893,
+    "decode_us": 60,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 32,
+    "load_us": 603235,
+    "first_frame_us": 615361,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 33,
+    "query_us": 527191,
+    "decode_us": 126,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 33,
+    "load_us": 527542,
+    "first_frame_us": 540775,
+    "documents": 4,
+    "first_page": true
+  },
+  {
+    "event": "query",
+    "sample": 34,
+    "query_us": 515622,
+    "decode_us": 63,
+    "documents": 4,
+    "from_cache": false,
+    "first_page": true,
+    "mine": false
+  },
+  {
+    "event": "frame",
+    "sample": 34,
+    "load_us": 516094,
+    "first_frame_us": 526415,
+    "documents": 4,
+    "first_page": true
+  }
+]

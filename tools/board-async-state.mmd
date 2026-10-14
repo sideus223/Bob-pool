@@ -1,0 +1,18 @@
+flowchart LR
+  subgraph BEFORE[기존 처리]
+    direction TB
+    A[게시판 진입] --> B[전체 게시글 실시간 구독]
+    B --> C[받은 목록 표시]
+    C --> D[변경된 구독 결과로 자동 갱신]
+    B --> E[오류 발생 시 목록 대신 오류 문구 표시]
+  end
+  subgraph AFTER[변경 후 처리]
+    direction TB
+    F[게시판 진입] --> G[최대 20개 조회 후 표시]
+    G --> H[스크롤 시 다음 20개 조회]
+    H --> I{조회 결과}
+    I -->|성공| J[기존 목록에 추가]
+    I -->|실패| K[기존 목록 유지 · 재시도 제공]
+    G --> L[새로고침 · 상세 화면 복귀 시 재조회]
+  end
+  BEFORE ~~~ AFTER

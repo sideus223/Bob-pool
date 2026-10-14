@@ -1,0 +1,222 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() { return request.auth != null; }
+    function owner() { return signedIn() && resource.data.authorUid == request.auth.uid; }
+    function textWithin(value, maxLength) {
+      return value is string && value.size() > 0 && value.size() <= maxLength
+        && value.matches('(?s).*[^\\s].*');
+    }
+    function validPost(data) {
+      return data.keys().hasAll(['title', 'content', 'authorUid', 'authorNickname', 'createdAt', 'updatedAt', 'likedBy'])
+        && data.keys().hasOnly(['title', 'content', 'authorUid', 'authorNickname', 'createdAt', 'updatedAt', 'likedBy', 'deleted', 'commentCount', 'commentChange'])
+        && textWithin(data.title, 100) && textWithin(data.content, 5000)
+        && data.authorUid is string && textWithin(data.authorNickname, 50)
+        && data.createdAt is timestamp && data.updatedAt is timestamp
+        && data.get('deleted', false) == false
+        && data.get('commentCount', 0) is int && data.get('commentCount', 0) >= 0
+        && data.likedBy is list && data.likedBy.size() <= 1000
+        && data.likedBy.toSet().size() == data.likedBy.size();
+    }
+    function limited(maximum) {
+      return request.query.limit is int && request.query.limit > 0 && request.query.limit <= maximum;
+    }
+    function safeId(value) {
+      return value is string && value.matches('[^/]{1,128}');
+    }
+    function limitPath(uid, kind) {
+      return /databases/$(database)/documents/users/$(uid)/boardLimits/$(kind);
+    }
+    function existingLimitTransition(data, uid, kind) {
+      let before = get(limitPath(uid, kind)).data;
+      return ((kind == 'posts' && request.time >= before.lastWrite + duration.value(30, 's'))
+          || (kind == 'comments' && request.time >= before.lastWrite + duration.value(5, 's')))
+        && ((request.time >= before.windowStart + duration.value(24, 'h')
+              && data.count == 1 && data.windowStart == request.time)
+          || (request.time < before.windowStart + duration.value(24, 'h')
+              && data.count == before.count + 1 && data.windowStart == before.windowStart));
+    }
+    function validLimit(data, uid, kind) {
+      return data.keys().hasAll(['windowStart', 'lastWrite', 'count', 'postId', 'commentId'])
+        && data.keys().hasOnly(['windowStart', 'lastWrite', 'count', 'postId', 'commentId'])
+        && data.windowStart is timestamp && data.lastWrite == request.time
+        && data.count is int && data.count > 0
+        && ((kind == 'posts' && data.count <= 20) || (kind == 'comments' && data.count <= 100))
+        && safeId(data.postId)
+        && ((kind == 'posts' && data.commentId == '') || (kind == 'comments' && safeId(data.commentId)))
+        && ((!exists(limitPath(uid, kind)) && data.count == 1 && data.windowStart == request.time)
+          || (exists(limitPath(uid, kind)) && existingLimitTransition(data, uid, kind)));
+    }
+    function consumesLimit(kind, postId, commentId) {
+      let after = getAfter(limitPath(request.auth.uid, kind)).data;
+      return validLimit(after, request.auth.uid, kind)
+        && after.postId == postId && after.commentId == commentId;
+    }
+    match /users/{uid}/boardLimits/{kind} {
+      function createsExactPost() {
+        let data = request.resource.data;
+        let target = /databases/$(database)/documents/posts/$(data.postId);
+        return !exists(target) && existsAfter(target)
+          && getAfter(target).data.authorUid == uid
+          && getAfter(target).data.createdAt == request.time;
+      }
+      function createsExactComment() {
+        let data = request.resource.data;
+        let target = /databases/$(database)/documents/posts/$(data.postId)/comments/$(data.commentId);
+        return !exists(target) && existsAfter(target)
+          && getAfter(target).data.authorUid == uid
+          && getAfter(target).data.createdAt == request.time;
+      }
+      allow get: if signedIn() && request.auth.uid == uid && kind in ['posts', 'comments'];
+      allow create, update: if signedIn() && request.auth.uid == uid && kind in ['posts', 'comments']
+        && validLimit(request.resource.data, uid, kind)
+        && ((kind == 'posts' && createsExactPost()) || (kind == 'comments' && createsExactComment()));
+      allow list, delete: if false;
+    }
+    function validLikeChange() {
+      let before = resource.data.likedBy.toSet();
+      let after = request.resource.data.likedBy.toSet();
+      // Only the authenticated user's own membership may change.
+      return signedIn()
+        && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['likedBy'])
+        && after.difference(before).hasOnly([request.auth.uid])
+        && before.difference(after).hasOnly([request.auth.uid]);
+    }
+    match /posts/{postId} {
+      function live() { return resource.data.get('deleted', false) == false; }
+      function deletion() {
+        let data = request.resource.data;
+        return owner() && live()
+          && data.diff(resource.data).affectedKeys().hasOnly(['deleted', 'title', 'content', 'authorNickname', 'likedBy', 'commentCount', 'commentChange', 'updatedAt'])
+          && data.deleted == true && data.title == '' && data.content == '' && data.authorNickname == ''
+          && data.likedBy == [] && data.commentCount == 0 && !('commentChange' in data)
+          && data.updatedAt == request.time;
+      }
+      function validCommentCountChange() {
+        let data = request.resource.data;
+        let change = data.get('commentChange', {});
+        let target = /databases/$(database)/documents/posts/$(postId)/comments/$(change.get('id', '_invalid'));
+        let count = resource.data.get('commentCount', 0);
+        return signedIn() && live()
+          && data.diff(resource.data).affectedKeys().hasOnly(['commentCount', 'commentChange'])
+          && change is map && change.keys().hasAll(['id', 'action', 'at'])
+          && change.keys().hasOnly(['id', 'action', 'at']) && safeId(change.id) && change.at == request.time
+          && ((change.action == 'create'
+            && !exists(target) && existsAfter(target) && getAfter(target).data.authorUid == request.auth.uid
+              && getAfter(target).data.createdAt == request.time && data.commentCount == count + 1
+            ) || (change.action == 'delete' && exists(target) && !existsAfter(target)
+              && get(target).data.authorUid == request.auth.uid && data.commentCount == count - 1));
+      }
+      // Deleted parents contain only redacted fields; reading their marker lets
+      // the detail screen report deletion without fetching old comments.
+      allow get: if signedIn();
+      allow list: if signedIn() && limited(20) && resource.data.deleted == false;
+      allow create: if signedIn() && validPost(request.resource.data)
+        && safeId(postId) && request.resource.data.deleted == false
+        && request.resource.data.commentCount == 0 && !('commentChange' in request.resource.data)
+        && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time
+        && request.resource.data.likedBy.size() == 0
+        && consumesLimit('posts', postId, '');
+      allow update: if deletion() || (live() && validPost(request.resource.data) && (
+        (owner()
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['title', 'content', 'updatedAt'])
+          && request.resource.data.updatedAt == request.time)
+        || validLikeChange() || validCommentCountChange()));
+      // Retain the immutable ID reservation permanently.
+      allow delete: if false;
+
+      match /comments/{commentId} {
+        function parentActive() {
+          let path = /databases/$(database)/documents/posts/$(postId);
+          return exists(path) && get(path).data.get('deleted', false) == false;
+        }
+        function parentActiveAfter() {
+          let path = /databases/$(database)/documents/posts/$(postId);
+          return existsAfter(path) && getAfter(path).data.get('deleted', false) == false;
+        }
+        function countChanged(action, delta) {
+          let path = /databases/$(database)/documents/posts/$(postId);
+          let after = getAfter(path).data;
+          return after.commentCount == get(path).data.get('commentCount', 0) + delta
+            && after.commentChange == {'id': commentId, 'action': action, 'at': request.time};
+        }
+        function validComment(data) {
+          return data.keys().hasAll(['content', 'authorUid', 'authorNickname', 'createdAt', 'updatedAt'])
+            && data.keys().hasOnly(['content', 'authorUid', 'authorNickname', 'createdAt', 'updatedAt'])
+            && textWithin(data.content, 2000) && data.authorUid is string
+            && textWithin(data.authorNickname, 50)
+            && data.createdAt is timestamp && data.updatedAt is timestamp;
+        }
+        allow get: if signedIn() && parentActive();
+        allow list: if signedIn() && parentActive() && limited(30);
+        allow create: if signedIn() && parentActive() && parentActiveAfter() && validComment(request.resource.data)
+          && safeId(commentId) && countChanged('create', 1) && consumesLimit('comments', postId, commentId)
+          && request.resource.data.authorUid == request.auth.uid
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.updatedAt == request.time;
+        allow update: if owner() && parentActive() && parentActiveAfter() && validComment(request.resource.data)
+          && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['content', 'updatedAt'])
+          && request.resource.data.updatedAt == request.time;
+        // Known orphan comments can be removed without reading their contents.
+        allow delete: if owner() && (!parentActive()
+          || (parentActiveAfter() && countChanged('delete', -1)));
+      }
+    }
+    function preferenceList(values, key) {
+      let value = values.get(key, []);
+      return value is list && value.size() <= 1000
+        && value.toSet().size() == value.size();
+    }
+    function validPreferences(data) {
+      let values = data.values;
+      return data.keys().hasAll(['schemaVersion', 'values', 'updatedAt'])
+        && data.keys().hasOnly(['schemaVersion', 'values', 'updatedAt'])
+        && data.schemaVersion == 1 && values is map
+        && values.keys().hasOnly([
+          'favorites', 'selections', 'interaction_history', 'learning',
+          'added_기분 좋음', 'removed_기분 좋음', 'disliked_기분 좋음',
+          'added_기분좋음', 'removed_기분좋음', 'disliked_기분좋음',
+          'added_무난함', 'removed_무난함', 'disliked_무난함',
+          'added_우울함', 'removed_우울함', 'disliked_우울함',
+          'added_스트레스', 'removed_스트레스', 'disliked_스트레스',
+          'added_피곤함', 'removed_피곤함', 'disliked_피곤함'
+        ])
+        && preferenceList(values, 'favorites')
+        && preferenceList(values, 'added_기분 좋음') && preferenceList(values, 'removed_기분 좋음') && preferenceList(values, 'disliked_기분 좋음')
+        && preferenceList(values, 'added_기분좋음') && preferenceList(values, 'removed_기분좋음') && preferenceList(values, 'disliked_기분좋음')
+        && preferenceList(values, 'added_무난함') && preferenceList(values, 'removed_무난함') && preferenceList(values, 'disliked_무난함')
+        && preferenceList(values, 'added_우울함') && preferenceList(values, 'removed_우울함') && preferenceList(values, 'disliked_우울함')
+        && preferenceList(values, 'added_스트레스') && preferenceList(values, 'removed_스트레스') && preferenceList(values, 'disliked_스트레스')
+        && preferenceList(values, 'added_피곤함') && preferenceList(values, 'removed_피곤함') && preferenceList(values, 'disliked_피곤함')
+        && values.get('selections', {}) is map && values.get('selections', {}).size() <= 1000
+        && values.get('interaction_history', {}) is map && values.get('interaction_history', {}).size() <= 1000
+        && (!('learning' in values) || validLearning(values.learning))
+        && data.updatedAt == request.time;
+    }
+    function validLearning(model) {
+      return model is map
+        && model.keys().hasAll(['version', 'weights', 'sampleCount', 'positives', 'negatives', 'distinctMenus', 'events'])
+        && model.keys().hasOnly(['version', 'weights', 'sampleCount', 'positives', 'negatives', 'distinctMenus', 'events'])
+        && model.weights is list
+        && ((model.version == 1 && model.weights.size() == 64)
+          || (model.version == 2 && model.weights.size() == 146))
+        && model.sampleCount is int && model.sampleCount >= 0 && model.sampleCount <= 64
+        && model.positives is int && model.positives >= 0
+        && model.negatives is int && model.negatives >= 0
+        && model.positives + model.negatives == model.sampleCount
+        && model.distinctMenus is int && model.distinctMenus >= 0 && model.distinctMenus <= model.sampleCount
+        && model.events is list && model.events.size() <= 64
+        && model.sampleCount <= model.events.size();
+    }
+    match /users/{uid}/preferences/{documentId} {
+      allow read: if signedIn() && request.auth.uid == uid && documentId == 'current';
+      allow create, update: if signedIn() && request.auth.uid == uid
+        && documentId == 'current' && validPreferences(request.resource.data);
+      // Reset keeps the document, preventing re-import of an old device copy.
+      allow delete: if false;
+    }
+    match /{document=**} { allow read, write: if false; }
+  }
+}

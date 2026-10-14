@@ -1,0 +1,13 @@
+* text=auto
+*.dart text eol=lf
+*.md text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.sh text eol=lf
+android/gradlew text eol=lf
+*.bat text eol=crlf
+*.png binary
+*.jpg binary
+*.jar binary
+# Preserve original comparison snapshots byte-for-byte, including whitespace.
+tools/evaluation_baselines/original/** -text whitespace=-trailing-space

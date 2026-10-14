@@ -1,0 +1,579 @@
+{
+  "modelVersion": 2,
+  "featureDimension": 146,
+  "rankingPolicy": "hybrid-v3",
+  "explorationRate": 0.1,
+  "dataset": "assets/data/menus_dataset.json",
+  "method": "Explicit food traits; deterministic logistic regression; held-out menu IDs; each scenario split independently",
+  "limitations": "Synthetic labels only. Not measured recommendation accuracy or user satisfaction. No causal/off-policy evaluation.",
+  "reports": [
+    {
+      "scenario": "soup",
+      "syntheticLabels": true,
+      "trainCount": 56,
+      "heldOutMenuCount": 28,
+      "trainMenuIds": [
+        "M002",
+        "M003",
+        "M005",
+        "M007",
+        "M009",
+        "M010",
+        "M012",
+        "M013",
+        "M015",
+        "M016",
+        "M018",
+        "M019",
+        "M021",
+        "M022",
+        "M024",
+        "M031",
+        "M033",
+        "M034",
+        "M036",
+        "M037",
+        "M039",
+        "M040",
+        "M042",
+        "M043",
+        "M045",
+        "M046",
+        "M048",
+        "M049",
+        "M051",
+        "M052",
+        "M054",
+        "M055",
+        "M057",
+        "M058",
+        "M060",
+        "M061",
+        "M063",
+        "M064",
+        "M067",
+        "M069",
+        "M071",
+        "M072",
+        "M076",
+        "M078",
+        "M083",
+        "M084",
+        "M086",
+        "M088",
+        "M090",
+        "M091",
+        "M093",
+        "M094",
+        "M096",
+        "M097",
+        "M099",
+        "M100"
+      ],
+      "heldOutMenuIds": [
+        "M001",
+        "M004",
+        "M008",
+        "M011",
+        "M014",
+        "M017",
+        "M020",
+        "M023",
+        "M032",
+        "M035",
+        "M038",
+        "M041",
+        "M044",
+        "M047",
+        "M050",
+        "M053",
+        "M056",
+        "M059",
+        "M062",
+        "M066",
+        "M070",
+        "M073",
+        "M079",
+        "M085",
+        "M089",
+        "M092",
+        "M095",
+        "M098"
+      ],
+      "modelReady": true,
+      "neutralBaselineLogLoss": 0.6931471805599451,
+      "classPriorBaselineLogLoss": 0.5205678903159618,
+      "learnedLogLoss": 0.20368092546626695,
+      "balancedClassPriorLogLoss": 0.923072809450804,
+      "balancedLearnedLogLoss": 0.1870621804755262,
+      "strongestFeatures": [
+        {
+          "feature": "form:국물",
+          "weight": 1.9147971819897092
+        },
+        {
+          "feature": "mood:스트레스/form:국물",
+          "weight": 1.9147971819897092
+        },
+        {
+          "feature": "scene:혼밥/form:국물",
+          "weight": 1.9147971819897092
+        },
+        {
+          "feature": "ingredient:곡물",
+          "weight": -1.6674303728779543
+        },
+        {
+          "feature": "method:끓임",
+          "weight": 1.2105997231349008
+        },
+        {
+          "feature": "form:밥",
+          "weight": -0.8265977865785392
+        },
+        {
+          "feature": "mood:스트레스/form:밥",
+          "weight": -0.8265977865785392
+        },
+        {
+          "feature": "scene:혼밥/form:밥",
+          "weight": -0.8265977865785392
+        }
+      ],
+      "rulesFavorableDrawMass": 0.21140957419898324,
+      "hybridFavorableDrawMass": 0.9478558680190816
+    },
+    {
+      "scenario": "western",
+      "syntheticLabels": true,
+      "trainCount": 56,
+      "heldOutMenuCount": 28,
+      "trainMenuIds": [
+        "M002",
+        "M003",
+        "M005",
+        "M007",
+        "M009",
+        "M010",
+        "M012",
+        "M013",
+        "M015",
+        "M016",
+        "M018",
+        "M019",
+        "M021",
+        "M022",
+        "M024",
+        "M031",
+        "M033",
+        "M034",
+        "M036",
+        "M037",
+        "M039",
+        "M040",
+        "M042",
+        "M043",
+        "M045",
+        "M046",
+        "M048",
+        "M049",
+        "M051",
+        "M052",
+        "M054",
+        "M055",
+        "M057",
+        "M058",
+        "M060",
+        "M061",
+        "M063",
+        "M064",
+        "M067",
+        "M069",
+        "M071",
+        "M072",
+        "M076",
+        "M078",
+        "M083",
+        "M084",
+        "M086",
+        "M088",
+        "M090",
+        "M091",
+        "M093",
+        "M094",
+        "M096",
+        "M097",
+        "M099",
+        "M100"
+      ],
+      "heldOutMenuIds": [
+        "M001",
+        "M004",
+        "M008",
+        "M011",
+        "M014",
+        "M017",
+        "M020",
+        "M023",
+        "M032",
+        "M035",
+        "M038",
+        "M041",
+        "M044",
+        "M047",
+        "M050",
+        "M053",
+        "M056",
+        "M059",
+        "M062",
+        "M066",
+        "M070",
+        "M073",
+        "M079",
+        "M085",
+        "M089",
+        "M092",
+        "M095",
+        "M098"
+      ],
+      "modelReady": true,
+      "neutralBaselineLogLoss": 0.6931471805599451,
+      "classPriorBaselineLogLoss": 0.2601797503890283,
+      "learnedLogLoss": 0.32667566799777426,
+      "balancedClassPriorLogLoss": 1.4908995896250334,
+      "balancedLearnedLogLoss": 0.4258994118592566,
+      "strongestFeatures": [
+        {
+          "feature": "category:양식",
+          "weight": 2.1397547501696894
+        },
+        {
+          "feature": "fullness:높음",
+          "weight": -0.979956384521396
+        },
+        {
+          "feature": "eatOut",
+          "weight": -0.934522650505014
+        },
+        {
+          "feature": "cookable",
+          "weight": -0.934522650505014
+        },
+        {
+          "feature": "category:한식",
+          "weight": -0.9148341646654159
+        },
+        {
+          "feature": "ingredient:해산물",
+          "weight": -0.8780031463311332
+        },
+        {
+          "feature": "taste:기름짐",
+          "weight": 0.8717084977638612
+        },
+        {
+          "feature": "method:볶음",
+          "weight": 0.7667001072339599
+        }
+      ],
+      "rulesFavorableDrawMass": 0.008386170403300966,
+      "hybridFavorableDrawMass": 0.2060739633189879
+    },
+    {
+      "scenario": "stir_fry",
+      "syntheticLabels": true,
+      "trainCount": 56,
+      "heldOutMenuCount": 28,
+      "trainMenuIds": [
+        "M002",
+        "M003",
+        "M005",
+        "M007",
+        "M009",
+        "M010",
+        "M012",
+        "M013",
+        "M015",
+        "M016",
+        "M018",
+        "M019",
+        "M021",
+        "M022",
+        "M024",
+        "M031",
+        "M033",
+        "M034",
+        "M036",
+        "M037",
+        "M039",
+        "M040",
+        "M042",
+        "M043",
+        "M045",
+        "M046",
+        "M048",
+        "M049",
+        "M051",
+        "M052",
+        "M054",
+        "M055",
+        "M057",
+        "M058",
+        "M060",
+        "M061",
+        "M063",
+        "M064",
+        "M067",
+        "M069",
+        "M071",
+        "M072",
+        "M076",
+        "M078",
+        "M083",
+        "M084",
+        "M086",
+        "M088",
+        "M090",
+        "M091",
+        "M093",
+        "M094",
+        "M096",
+        "M097",
+        "M099",
+        "M100"
+      ],
+      "heldOutMenuIds": [
+        "M001",
+        "M004",
+        "M008",
+        "M011",
+        "M014",
+        "M017",
+        "M020",
+        "M023",
+        "M032",
+        "M035",
+        "M038",
+        "M041",
+        "M044",
+        "M047",
+        "M050",
+        "M053",
+        "M056",
+        "M059",
+        "M062",
+        "M066",
+        "M070",
+        "M073",
+        "M079",
+        "M085",
+        "M089",
+        "M092",
+        "M095",
+        "M098"
+      ],
+      "modelReady": true,
+      "neutralBaselineLogLoss": 0.6931471805599451,
+      "classPriorBaselineLogLoss": 0.4731768754115776,
+      "learnedLogLoss": 0.3865063809455776,
+      "balancedClassPriorLogLoss": 0.8908035488820186,
+      "balancedLearnedLogLoss": 0.3989617424208347,
+      "strongestFeatures": [
+        {
+          "feature": "method:볶음",
+          "weight": 3.2228168669421584
+        },
+        {
+          "feature": "method:끓임",
+          "weight": -1.7034442705065962
+        },
+        {
+          "feature": "ingredient:채소",
+          "weight": -1.2136252480488754
+        },
+        {
+          "feature": "method:생식",
+          "weight": -0.9081557465133213
+        },
+        {
+          "feature": "spice:순함",
+          "weight": -0.7487343250679971
+        },
+        {
+          "feature": "fullness:낮음",
+          "weight": -0.7289466545429018
+        },
+        {
+          "feature": "form:밥",
+          "weight": 0.714434485965033
+        },
+        {
+          "feature": "mood:스트레스/form:밥",
+          "weight": 0.714434485965033
+        }
+      ],
+      "rulesFavorableDrawMass": 0.3378541798817107,
+      "hybridFavorableDrawMass": 0.700645768526909
+    },
+    {
+      "scenario": "pork_over_seafood",
+      "syntheticLabels": true,
+      "trainCount": 28,
+      "heldOutMenuCount": 15,
+      "trainMenuIds": [
+        "M004",
+        "M010",
+        "M013",
+        "M014",
+        "M019",
+        "M020",
+        "M031",
+        "M032",
+        "M034",
+        "M035",
+        "M037",
+        "M038",
+        "M040",
+        "M050",
+        "M052",
+        "M055",
+        "M058",
+        "M059",
+        "M061",
+        "M062",
+        "M066",
+        "M067",
+        "M071",
+        "M078",
+        "M086",
+        "M088",
+        "M091",
+        "M096"
+      ],
+      "heldOutMenuIds": [
+        "M001",
+        "M012",
+        "M018",
+        "M023",
+        "M033",
+        "M036",
+        "M039",
+        "M051",
+        "M057",
+        "M060",
+        "M064",
+        "M069",
+        "M079",
+        "M090",
+        "M100"
+      ],
+      "modelReady": true,
+      "neutralBaselineLogLoss": 0.6931471805599453,
+      "classPriorBaselineLogLoss": 0.6718545902865517,
+      "learnedLogLoss": 0.3625417494844765,
+      "balancedClassPriorLogLoss": 0.6957047308933305,
+      "balancedLearnedLogLoss": 0.35855086570702965,
+      "strongestFeatures": [
+        {
+          "feature": "ingredient:해산물",
+          "weight": -2.707368180141301
+        },
+        {
+          "feature": "ingredient:돼지고기",
+          "weight": 2.6893269330125555
+        },
+        {
+          "feature": "taste:기름짐",
+          "weight": 0.9542429286153583
+        },
+        {
+          "feature": "fullness:높음",
+          "weight": 0.7912904574249932
+        },
+        {
+          "feature": "ingredient:유제품",
+          "weight": 0.5371229776209692
+        },
+        {
+          "feature": "ingredient:달걀",
+          "weight": 0.5045052023916722
+        },
+        {
+          "feature": "ingredient:곡물",
+          "weight": -0.492288920229346
+        },
+        {
+          "feature": "mood:스트레스/form:밥",
+          "weight": -0.4828848274212353
+        }
+      ],
+      "rulesFavorableDrawMass": 0.7293503370377188,
+      "hybridFavorableDrawMass": 0.9686878208119829
+    },
+    {
+      "scenario": "grilled_over_fried",
+      "syntheticLabels": true,
+      "trainCount": 8,
+      "heldOutMenuCount": 5,
+      "trainMenuIds": [
+        "M031",
+        "M039",
+        "M052",
+        "M062",
+        "M076",
+        "M079",
+        "M092",
+        "M093"
+      ],
+      "heldOutMenuIds": [
+        "M017",
+        "M051",
+        "M069",
+        "M083",
+        "M098"
+      ],
+      "modelReady": true,
+      "neutralBaselineLogLoss": 0.6931471805599453,
+      "classPriorBaselineLogLoss": 0.77649900350533,
+      "learnedLogLoss": 0.3024536959909184,
+      "balancedClassPriorLogLoss": 0.7254164411287309,
+      "balancedLearnedLogLoss": 0.29954655287236615,
+      "strongestFeatures": [
+        {
+          "feature": "method:구이",
+          "weight": 1.1407399405044798
+        },
+        {
+          "feature": "method:튀김",
+          "weight": -1.1110175084552973
+        },
+        {
+          "feature": "taste:기름짐",
+          "weight": -0.8997136924024514
+        },
+        {
+          "feature": "ingredient:곡물",
+          "weight": 0.824727674535744
+        },
+        {
+          "feature": "fullness:높음",
+          "weight": -0.6729923847205448
+        },
+        {
+          "feature": "mood:스트레스/form:빵",
+          "weight": 0.6198366942286418
+        },
+        {
+          "feature": "scene:혼밥/form:빵",
+          "weight": 0.6198366942286418
+        },
+        {
+          "feature": "form:빵",
+          "weight": 0.6198366942286418
+        }
+      ],
+      "rulesFavorableDrawMass": 0.8278995303857792,
+      "hybridFavorableDrawMass": 0.9158793613655152
+    }
+  ]
+}

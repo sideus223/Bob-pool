@@ -1,0 +1,221 @@
+{
+  "test_date": "2026-10-14",
+  "environment": "Physical SM-S931N Android 16 device, same Flutter profile binary and authenticated Firestore client",
+  "baseline": "Original pre-pagination query shape from 4848f33 parent; unbounded createdAt descending snapshots, first non-cache response",
+  "current": "deleted false, createdAt descending and document ID ordering, limit 20, Source.server",
+  "dataset": "Same isolated real Firestore collection, 1000 synthetic active posts, 1024 deterministic varied ASCII content characters per post",
+  "protocol": "24 pairs; alternating original-current and current-original; first 4 pairs excluded, 20 measured pairs; 1 second between queries",
+  "total_queries": 48,
+  "cached_responses": 0,
+  "original_query": {
+    "samples": 20,
+    "median_ms": 9734.206,
+    "p95_ms": 10821.628,
+    "mean_ms": 9867.802,
+    "min_ms": 9170.142,
+    "max_ms": 11246.909
+  },
+  "current_query": {
+    "samples": 20,
+    "median_ms": 484.74,
+    "p95_ms": 527.585,
+    "mean_ms": 488.781,
+    "min_ms": 465.064,
+    "max_ms": 528.051
+  },
+  "median_response_reduction_percent": 95.02,
+  "original_decoding": {
+    "samples": 20,
+    "median_ms": 1.802,
+    "p95_ms": 2.971,
+    "mean_ms": 1.964,
+    "min_ms": 1.615,
+    "max_ms": 3.399
+  },
+  "current_decoding": {
+    "samples": 20,
+    "median_ms": 0.096,
+    "p95_ms": 0.205,
+    "mean_ms": 0.116,
+    "min_ms": 0.073,
+    "max_ms": 0.213
+  },
+  "original_query_and_decoding": {
+    "samples": 20,
+    "median_ms": 9736.054,
+    "p95_ms": 10823.358,
+    "mean_ms": 9869.765,
+    "min_ms": 9171.782,
+    "max_ms": 11248.612
+  },
+  "current_query_and_decoding": {
+    "samples": 20,
+    "median_ms": 484.84,
+    "p95_ms": 527.661,
+    "mean_ms": 488.896,
+    "min_ms": 465.141,
+    "max_ms": 528.132
+  },
+  "current_faster_pairs": 20,
+  "measured_pairs": [
+    {
+      "pair": 5,
+      "original_query_ms": 10821.628,
+      "current_query_ms": 507.099,
+      "difference_ms": 10314.529,
+      "reduction_percent": 95.314
+    },
+    {
+      "pair": 6,
+      "original_query_ms": 9900.769,
+      "current_query_ms": 515.122,
+      "difference_ms": 9385.647,
+      "reduction_percent": 94.797
+    },
+    {
+      "pair": 7,
+      "original_query_ms": 10438.046,
+      "current_query_ms": 479.716,
+      "difference_ms": 9958.33,
+      "reduction_percent": 95.404
+    },
+    {
+      "pair": 8,
+      "original_query_ms": 10620.8,
+      "current_query_ms": 465.738,
+      "difference_ms": 10155.062,
+      "reduction_percent": 95.615
+    },
+    {
+      "pair": 9,
+      "original_query_ms": 10695.024,
+      "current_query_ms": 465.064,
+      "difference_ms": 10229.96,
+      "reduction_percent": 95.652
+    },
+    {
+      "pair": 10,
+      "original_query_ms": 9865.313,
+      "current_query_ms": 527.585,
+      "difference_ms": 9337.728,
+      "reduction_percent": 94.652
+    },
+    {
+      "pair": 11,
+      "original_query_ms": 9516.237,
+      "current_query_ms": 475.693,
+      "difference_ms": 9040.544,
+      "reduction_percent": 95.001
+    },
+    {
+      "pair": 12,
+      "original_query_ms": 9681.343,
+      "current_query_ms": 497.877,
+      "difference_ms": 9183.466,
+      "reduction_percent": 94.857
+    },
+    {
+      "pair": 13,
+      "original_query_ms": 11246.909,
+      "current_query_ms": 469.592,
+      "difference_ms": 10777.317,
+      "reduction_percent": 95.825
+    },
+    {
+      "pair": 14,
+      "original_query_ms": 9288.047,
+      "current_query_ms": 501.467,
+      "difference_ms": 8786.58,
+      "reduction_percent": 94.601
+    },
+    {
+      "pair": 15,
+      "original_query_ms": 9706.741,
+      "current_query_ms": 465.201,
+      "difference_ms": 9241.54,
+      "reduction_percent": 95.207
+    },
+    {
+      "pair": 16,
+      "original_query_ms": 9772.27,
+      "current_query_ms": 490.716,
+      "difference_ms": 9281.554,
+      "reduction_percent": 94.978
+    },
+    {
+      "pair": 17,
+      "original_query_ms": 9526.282,
+      "current_query_ms": 474.165,
+      "difference_ms": 9052.117,
+      "reduction_percent": 95.023
+    },
+    {
+      "pair": 18,
+      "original_query_ms": 9761.672,
+      "current_query_ms": 482.748,
+      "difference_ms": 9278.924,
+      "reduction_percent": 95.055
+    },
+    {
+      "pair": 19,
+      "original_query_ms": 9180.135,
+      "current_query_ms": 486.733,
+      "difference_ms": 8693.402,
+      "reduction_percent": 94.698
+    },
+    {
+      "pair": 20,
+      "original_query_ms": 9493.013,
+      "current_query_ms": 528.051,
+      "difference_ms": 8964.962,
+      "reduction_percent": 94.437
+    },
+    {
+      "pair": 21,
+      "original_query_ms": 9170.142,
+      "current_query_ms": 470.24,
+      "difference_ms": 8699.902,
+      "reduction_percent": 94.872
+    },
+    {
+      "pair": 22,
+      "original_query_ms": 9561.685,
+      "current_query_ms": 503.047,
+      "difference_ms": 9058.638,
+      "reduction_percent": 94.739
+    },
+    {
+      "pair": 23,
+      "original_query_ms": 9855.365,
+      "current_query_ms": 477.097,
+      "difference_ms": 9378.268,
+      "reduction_percent": 95.159
+    },
+    {
+      "pair": 24,
+      "original_query_ms": 9254.609,
+      "current_query_ms": 492.662,
+      "difference_ms": 8761.947,
+      "reduction_percent": 94.677
+    }
+  ],
+  "limitations": [
+    "Query-pattern reconstruction with the same SDK, not a benchmark of the archived original APK as a whole.",
+    "Client-observed response duration includes network, SDK processing and initial snapshot delivery; not isolated server computation.",
+    "Both query results are server-confirmed; SDK in-memory optimizations are not independently disabled or measured. Disk persistence is disabled.",
+    "The old listener is stopped after its first server snapshot. Continuous realtime-update behavior and comment-count listeners are outside this comparison.",
+    "No full-screen rendering, user conversion, billing, or all-pages completion improvement is established.",
+    "Single device and session, synthetic large dataset; results do not represent the current four-post production query or all user networks."
+  ],
+  "verification": {
+    "fixture_sha256": "47be03fc3dc39b64ad14a8117152c94805f3278f00a4f5884a4fb0dab8ca4ea5",
+    "comparison_apk_sha256": "29a097db5586641df077f19856bc4cdd89dae3daecf3c11797504000ba7f29aa",
+    "original_rules_source_sha256": "c0f4fb4c0aac832be5ef4a3f540cd6403cfa3b71202631e61564b737704b24b0",
+    "cleanup_complete": true,
+    "remaining_synthetic_documents": 0,
+    "rules_restored": true,
+    "normal_app_restored": true,
+    "normal_app_version": "1.0.0+7",
+    "normal_app_measurement_events": 0
+  }
+}
