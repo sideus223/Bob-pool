@@ -15,7 +15,7 @@
 
 ## App Check
 
-接続版はPlay IntegrityでApp Checkトークンを取得し、AuthenticationとFirestoreに送信します。旧接続APKは更新が必要です。一般的なエミュレーターではデモ版、または個別登録した開発用デバッグプロバイダーを使用します。[設定と制限（韓国語）](../APP_CHECK.md)
+接続版はPlay IntegrityでApp Checkトークンを取得し、AuthenticationとFirestoreに送信します。旧接続APKは更新が必要です。一般的なエミュレーターではデモ版、または個別登録した開発用デバッグプロバイダーを使用します。
 
 ## インストール
 

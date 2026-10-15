@@ -15,7 +15,7 @@
 
 ## App Check
 
-서버 연결 버전은 Play Integrity로 App Check 토큰을 받아 Authentication과 Firestore 요청에 포함합니다. 구버전 연결 APK는 업데이트가 필요합니다. 일반 에뮬레이터에서는 데모 또는 별도 등록한 개발용 디버그 공급자를 사용합니다. [설정과 제한](APP_CHECK.md)
+서버 연결 버전은 Play Integrity로 App Check 토큰을 받아 Authentication과 Firestore 요청에 포함합니다. 구버전 연결 APK는 업데이트가 필요합니다. 일반 에뮬레이터에서는 데모 또는 별도 등록한 개발용 디버그 공급자를 사용합니다.
 
 ## 설치
 
