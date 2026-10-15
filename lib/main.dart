@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'core/app_config.dart';
 import 'services/auth_service.dart';
+import 'services/app_check_service.dart';
 import 'services/user_menu_preference_service.dart';
 import 'services/firestore_preference_store.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -10,11 +11,12 @@ import 'routes/app_routes.dart';
 import 'core/theme/app_theme.dart';
 import 'screens/auth_gate.dart';
 
-void main() async {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (!AppConfig.demoMode) {
     try {
       await Firebase.initializeApp();
+      await AppCheckService.activate();
     } catch (_) {
       runApp(
         const MaterialApp(

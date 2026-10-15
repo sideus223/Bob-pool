@@ -1,0 +1,71 @@
+{
+  "checkedAt": "2026-10-15T00:53:02Z",
+  "scope": "Android App Check initialization, Play Integrity configuration, Firestore and Authentication sign-in enforcement, free Identity Platform upgrade, connected APK update",
+  "provider": "playIntegrity",
+  "distribution": "offPlay",
+  "minimumDeviceIntegrity": "MEETS_DEVICE_INTEGRITY",
+  "requirePlayRecognized": false,
+  "requireLicensed": false,
+  "tokenTtlSeconds": 3600,
+  "releaseDebugProviderAllowed": false,
+  "firestore": {
+    "enforcementMode": "ENFORCED",
+    "devicePlayIntegrityTokenIssued": true,
+    "tokenAppIdMatched": true,
+    "sdkServerReadSucceeded": true,
+    "comparisonCheckedAt": "2026-10-15T00:53:02Z",
+    "sameAuthenticationForBothRequests": true,
+    "restWithAppCheckHttp": 200,
+    "restWithoutAppCheckHttp": 403,
+    "contentsLogged": false
+  },
+  "authentication": {
+    "subtype": "IDENTITY_PLATFORM",
+    "enforcementMode": "ENFORCED",
+    "upgradeApprovedByUser": true,
+    "sparkDailyActiveUserLimit": 3000,
+    "existingSessionRefreshSucceeded": true,
+    "appCheckProtectionVerified": true,
+    "comparisonCheckedAt": "2026-10-15T00:53:02Z",
+    "comparisonEndpoint": "accounts:signInWithPassword",
+    "sameSyntheticCredentialsForBothRequests": true,
+    "signInWithAppCheckHttp": 400,
+    "signInWithAppCheckResult": "INVALID_LOGIN_CREDENTIALS",
+    "signInWithoutAppCheckHttp": 401,
+    "signInWithoutAppCheckResult": "APP_CHECK_TOKEN_INVALID",
+    "existingAccountInfoWithAppCheckHttp": 200,
+    "actualNewSignInOrSignUpPerformed": false,
+    "accountCreatedOrModified": false,
+    "syntheticCredentialsOrTokensLogged": false
+  },
+  "billingEnabled": false,
+  "tests": {
+    "existingFlutterPassed": 106,
+    "existingFlutterSkipped": 1,
+    "additionalDemoBootstrapPassed": 1,
+    "flutterAnalyze": "passed",
+    "connectedReleaseBuild": "passed",
+    "demoReleaseBuild": "passed"
+  },
+  "apk": {
+    "versionName": "1.0.0",
+    "versionCode": 12,
+    "applicationId": "com.babpool.app",
+    "minSdk": 24,
+    "targetSdk": 36,
+    "signingCertificateSha256": "28c6acf423507059c627149ce40d5b8a76316de88aa9219d716a019895b21b16",
+    "signingType": "existing review debug certificate; release build",
+    "connectedSha256": "99846f18e1e7c51e75f8f08e1be959639b390edac5ceb5eef89bcf74a4bd0355",
+    "demoSha256": "99a1b60afcecfccc7db4f5f7e6b109e1ca0ad12c85f9233d5da277cfe060d9e2",
+    "installedOnDevice": "connected",
+    "installedViaUpdateWithoutUninstall": true,
+    "probeEntrypointIncludedInDistributedBuild": false,
+    "githubReleaseTag": "v1.0.0-build.12",
+    "githubReleaseUrl": "https://github.com/sideus223/Bob-pool/releases/tag/v1.0.0-build.12"
+  },
+  "limits": [
+    "Off-Play policy checks device integrity and does not guarantee a Google Play-distributed binary.",
+    "Authentication sign-in gate and existing-session refresh were checked; new real-user sign-in, sign-up, password reset and deletion were not independently exercised.",
+    "Old connected APKs without App Check must be updated."
+  ]
+}
