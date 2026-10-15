@@ -168,11 +168,11 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
 
 <table width="100%">
   <tr>
-    <td width="45%" valign="top">
+    <td width="360" valign="top">
       <strong>OS</strong>
       <p><code>Windows</code></p>
     </td>
-    <td width="55%" valign="top">
+    <td width="360" valign="top">
       <strong>開発対象</strong>
       <p><code>Android</code> モバイルアプリ</p>
     </td>
@@ -180,7 +180,7 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
   <tr>
     <td valign="top">
       <strong>開発ツール</strong>
-      <p><code>Android Studio</code><br><code>Visual Studio Code</code></p>
+      <p><code>Android Studio</code><br><code>Visual&nbsp;Studio&nbsp;Code</code></p>
     </td>
     <td valign="top">
       <strong>フロントエンド</strong>
@@ -190,7 +190,7 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
   <tr>
     <td valign="top">
       <strong>バックエンド・データ管理</strong>
-      <p><code>Firebase Authentication</code><br><code>Cloud Firestore</code><br><code>SharedPreferences</code></p>
+      <p><code>Firebase&nbsp;Authentication</code><br><code>Cloud Firestore</code><br><code>SharedPreferences</code></p>
     </td>
     <td valign="top">
       <strong>デザイン</strong>
@@ -199,12 +199,12 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
   </tr>
   <tr>
     <td valign="top">
-      <strong>共同開発ツール</strong>
-      <p><code>Git</code> · <code>GitHub</code></p>
+      <strong>テスト・サーバー管理</strong>
+      <p><code>Android Emulator</code><br><code>Firestore Emulator</code><br><code>Firebase&nbsp;Console</code></p>
     </td>
     <td valign="top">
-      <strong>テスト・サーバー管理</strong>
-      <p><code>Android Emulator</code> · <code>Flutter Test</code><br><code>Firestore Emulator</code> · <code>Firebase&nbsp;Console</code></p>
+      <strong>共同開発ツール</strong>
+      <p><code>Git</code> · <code>GitHub</code></p>
     </td>
   </tr>
 </table>
