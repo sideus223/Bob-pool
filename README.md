@@ -7,7 +7,7 @@
 <table>
   <tr>
     <td width="120" align="center">
-      <img src="assets/icon/app_icon.png" width="96" alt="밥풀 앱 아이콘">
+      <img src="docs/images/app-icon-apricot-rice.png" width="96" alt="밥풀 앱 아이콘">
     </td>
     <td>
       <h2>밥풀 · Bob-pool</h2>
@@ -132,7 +132,7 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
 <table>
   <tr>
     <td width="120" align="center">
-      <img src="assets/icon/app_icon.png" width="96" alt="Bob-poolのアプリアイコン">
+      <img src="docs/images/app-icon-apricot-rice.png" width="96" alt="Bob-poolのアプリアイコン">
     </td>
     <td>
       <h2>밥풀 · Bob-pool</h2>
