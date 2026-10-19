@@ -1,0 +1,1927 @@
+{
+  "schema_version": 1,
+  "photo_processing_date": "2026-10-18",
+  "applied_date": "2026-10-19",
+  "project": "Bob-pool Android",
+  "provenance": "내장 imagegen으로 음식 사진 47장을 복원하고 53장을 재생성했습니다. 메뉴 설명용 AI 이미지이며 실제 식당 촬영 사진이 아닙니다.",
+  "scope": "기존 메뉴 ID와 이미지 경로를 유지한 사진100장 교체",
+  "summary": {
+    "count": 100,
+    "restored": 47,
+    "recreated": 53,
+    "width": 1448,
+    "height": 1086,
+    "bytes": 41081960.0
+  },
+  "evaluation": "메뉴 식별·구도·화질을 육안 검수하고 홈 화면 비율의 중앙 크롭을 확인했습니다. 음식·레시피의 외부 사실 검증이나 사용자 만족도 측정은 아닙니다.",
+  "items": [
+    {
+      "menu_id": "M001",
+      "menu_name": "김치찌개",
+      "asset": "assets/images/menus/1.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 17794,
+        "sha256": "61D111CF6A294DD36CBAEAEBB460E2BCB1866D931CCD54E26A965A3D6BC7D827"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 416114,
+        "sha256": "5EC1A16B4BB9B75AFE9A23038FEC15B902C57C2EDDF3158BA88D714BD452094E"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M002",
+      "menu_name": "된장찌개",
+      "asset": "assets/images/menus/2.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 15424,
+        "sha256": "90CCA56687AFA0300B87D37DAD5E638BEE0AA2615070A35B3053CE0E955081E9"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 361946,
+        "sha256": "2841AE537008A054F8D0A80759BBA46E3056C64B1B1D2139ACC792B0F75E2CAB"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M003",
+      "menu_name": "순두부찌개",
+      "asset": "assets/images/menus/3.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 16702,
+        "sha256": "194E7FB49C53C3C1F32064CEFEE14B61A62E5DE0C642BE9A57E361813065A994"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 381734,
+        "sha256": "626E19EC036F8CD3D0C9A9601C6031021DE42F89B2102646B568E1BDD990528A"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M004",
+      "menu_name": "부대찌개",
+      "asset": "assets/images/menus/4.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 16519,
+        "sha256": "4C64A8A3CE1B7AB8A1CF0B018C3921D618D7041111CF45F5CCCAC0D51B2004A7"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 422446,
+        "sha256": "39AFF07F59E4BE7225ECBEE66D4C0B6C0C535355442949D542C488635F59451E"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M005",
+      "menu_name": "청국장",
+      "asset": "assets/images/menus/5.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 15805,
+        "sha256": "675E4FADADE701A8A1EBCA3A7E04966DBD5EE134DCFD1BDB01D234704193C5EC"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 421153,
+        "sha256": "C14E297D0F9D4BCFA9ADA0F531077509B1CB769616CCA16B1D2B885C870FE22C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M006",
+      "menu_name": "갈비탕",
+      "asset": "assets/images/menus/6.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 15924,
+        "sha256": "089C0BB91845B90884EFC7E1C7FBA21228ACD68F3B7CCF485BA3A088CF562500"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 376813,
+        "sha256": "9952A0729387B70CA17391FFA38405D9984DAB69AF1FDCFAC62A9A8BDEF16229"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M007",
+      "menu_name": "설렁탕",
+      "asset": "assets/images/menus/7.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 14943,
+        "sha256": "E07DA11DAEF1F40ACE98A69D629350D72D42C2F481AE09E3050B35B734C49D52"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 401480,
+        "sha256": "54BF7A54861388C94E7916380DFA384328F8844A8BCCA0BBC1A9CAD07EF22AE7"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M008",
+      "menu_name": "곰탕",
+      "asset": "assets/images/menus/8.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 15228,
+        "sha256": "ADA3584B52C78B3421D665C84EC121C4F338596B4DBC2BBB6E1F93A15AF97809"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 370666,
+        "sha256": "9CA8007DF73BA2E65B4270D42DA2AE64C2660E756A4FBCD6B9691AB559BBE96C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M009",
+      "menu_name": "육개장",
+      "asset": "assets/images/menus/9.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 16911,
+        "sha256": "4C631FBC8A5E709D20D54C9AD9B59907ADD0D653AEECAB816B03D52D71661C1F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 467493,
+        "sha256": "398EA78A2F61479527017CCBBC33FD07F7D6C609E02FF68B3FD4125D069D9D9C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M010",
+      "menu_name": "감자탕",
+      "asset": "assets/images/menus/10.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 17278,
+        "sha256": "7086E686254D6064525E42F257AE836B022476B9A31EB4840462A05D7D1702B4"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 461896,
+        "sha256": "8BF9E9A8D9D3DFBD94CFA81819512E931968E4B649B45BC1E4DFB38CF816037D"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M011",
+      "menu_name": "삼계탕",
+      "asset": "assets/images/menus/11.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15855,
+        "sha256": "C20DDB60AB8763E60C1B596CC3FD03D0C7ACE274CDB60D05CACA0441BCE45531"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 371981,
+        "sha256": "C482A309671224CA8CB17E983682644C31BFC0150C4E2192ABA4907B19A3F630"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M012",
+      "menu_name": "국밥",
+      "asset": "assets/images/menus/12.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 15490,
+        "sha256": "D17A3DBF2F61133CCF76223F9AF51482671A13560FD1C89CF810562D5D7CEACF"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 390725,
+        "sha256": "0D824504D7502CDAE57A2BDCC47606611ADCF22EC3EB8AD7F39B63563BACE247"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M013",
+      "menu_name": "돼지국밥",
+      "asset": "assets/images/menus/13.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15972,
+        "sha256": "B9EBA17CAC636605C1DFC76A96FEACB3199A26723D2A7FEDA1E3A33E94A7E9D2"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 412891,
+        "sha256": "DF77462C0912FF9CDB624703914DF1CC6D81479E2224A2BA06872A2ABC9F9AC6"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M014",
+      "menu_name": "순대국밥",
+      "asset": "assets/images/menus/14.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 14205,
+        "sha256": "F3DF4624C4338A3F366834729AE0D31D804F4FEB6AECCA5DD4C40DB830B2DBA7"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 409143,
+        "sha256": "BEB19042E3FA4298727F9DFAA55AD9C10CF65CB6256C695A93358AF9790B8DBC"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M015",
+      "menu_name": "콩나물국밥",
+      "asset": "assets/images/menus/15.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17019,
+        "sha256": "F1C702D62C3921258343788BF6268B5DAE6075E9F400F727DA58A63CE72EF77E"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 344126,
+        "sha256": "C58DD71F621E0B4D131F42202D170A81A4EDAA82F812A59829B3661D88F69C65"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M016",
+      "menu_name": "비빔밥",
+      "asset": "assets/images/menus/16.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 206,
+        "height": 158,
+        "bytes": 17105,
+        "sha256": "427495B19CAAE8564FD4504001522F66BD9D48104ABC778997C0D0F52FDC5FBA"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 465422,
+        "sha256": "ECDFC2A0770B285D0F2B1F10712F6E0DFA66B7196D45976931F4CD15A410BA64"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M017",
+      "menu_name": "돌솥비빔밥",
+      "asset": "assets/images/menus/17.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16983,
+        "sha256": "8941903B1E0D60D655754C7395D5A3E852398A2AB02FF945CF964472EC4314F8"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 476558,
+        "sha256": "65DFF0856AA8E82F54A90EB38A1F54DC58C0BA395B8ADDEBAAFE40A42DBB7D86"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M018",
+      "menu_name": "제육덮밥",
+      "asset": "assets/images/menus/18.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 206,
+        "height": 158,
+        "bytes": 16920,
+        "sha256": "18AF1AA894BB6DA5583FC26EDCDD62D3FAA36BC85EA4ADD91DFCC66FFF1BB744"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 382087,
+        "sha256": "060475431B770E165F1BF397256AA8D1B6D51CD13F4F77A242D5247A7D36BD58"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M019",
+      "menu_name": "오징어덮밥",
+      "asset": "assets/images/menus/19.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 15837,
+        "sha256": "CDD802795C9885CA92123E11EEACA467A05C8143A50FAB981085D717612156EC"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 465644,
+        "sha256": "B77B3D2F0EC54B6E81732CDF808482A9A584292B80E3F8EF9B2E4A66CEE54334"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M020",
+      "menu_name": "김치볶음밥",
+      "asset": "assets/images/menus/20.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 16710,
+        "sha256": "2A549CFE8873B08CC1338008A637B38F95A5CE6E24CC46B399B629B63F990549"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 385393,
+        "sha256": "D7AB2D0E769CFF8809504EA422C5E94EBFDE5554BD27016A8235F65F84BC8713"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M021",
+      "menu_name": "계란볶음밥",
+      "asset": "assets/images/menus/21.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 16754,
+        "sha256": "A1A655CD908656AD9B5BDFF4DB7A063F8759F695B7C0F3FB39EB310B6704D0AF"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 387996,
+        "sha256": "8FCB60A8377F743B579C05D76C611D91061970BD5C6F904352D8ABBB1ED3C474"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M022",
+      "menu_name": "불고기",
+      "asset": "assets/images/menus/22.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 17409,
+        "sha256": "BBEF25083808038C813A7CEB67BD7EE9BE26BDD117A6AF8890016EAD30B9F86F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 450139,
+        "sha256": "4D0D1CCEE6BD4304CFFB0D7AA862BCA0973F8DC6BEA9D85D86E8A21AD776DCAF"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M023",
+      "menu_name": "제육볶음",
+      "asset": "assets/images/menus/23.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 17692,
+        "sha256": "B54227FF5FB0F41A34CF0897FF6B36CACA51C481C54A2D8EED0FF05187F8C998"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 493013,
+        "sha256": "6A81E54EFF388D07BB7B6808F52806DF21C91E56EEAE97AA6295A16CF47402B4"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M024",
+      "menu_name": "닭볶음탕",
+      "asset": "assets/images/menus/24.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 18237,
+        "sha256": "8C472E04D42F60B75B5C57FA554D8061845019E68FE161F2B5ECFB2266AC1D81"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 442943,
+        "sha256": "66720A6861C35BBFFF286F778FEEAD01FDE905F3D6A9A62406067C576E61975C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M025",
+      "menu_name": "갈비찜",
+      "asset": "assets/images/menus/25.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 18358,
+        "sha256": "57827B857A5612D098EE39C91A7D7D41882905361DEFC7473898F63AFFBC5911"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 501064,
+        "sha256": "47DE64A8B7769A8B738EB45EFD3DCA83EDB7CF6C0112069D920A4E7364E34A48"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M026",
+      "menu_name": "보쌈",
+      "asset": "assets/images/menus/26.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 16994,
+        "sha256": "0F8A10F0237A4CC0A8D7B9A7B271115D892E81A1D78C7B8D9777B7A340211699"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 431573,
+        "sha256": "F10FC340456A564EBCB9DE83C6D2146CEA23D5141D0439FDF231E7B8C2AC6E4F"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M027",
+      "menu_name": "족발",
+      "asset": "assets/images/menus/27.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 17986,
+        "sha256": "ECEA18DB458F706793700D515C14B3A7FF6F55E9A21C0A0D2467076DEF845C96"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 514246,
+        "sha256": "17372472BB6821D65231D85B7AC147A4C87D4F9A25C23777FE8D5A7648D1D3E1"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M028",
+      "menu_name": "삼겹살",
+      "asset": "assets/images/menus/28.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 17903,
+        "sha256": "4C43A33DB5ABFC0DA5EA4DD39465E52E6CE1AD2D5B7D1A875C855451E9E775C1"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 543414,
+        "sha256": "BAF5AF1B72EFC2AAE45EFAA92BF87BED13B878CDC28AE669DC10A6EA27AFA56B"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M029",
+      "menu_name": "돼지갈비",
+      "asset": "assets/images/menus/29.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 158,
+        "bytes": 17216,
+        "sha256": "C52AD2EFF75825088591A571EA549AF4315EE3008ED0DB5D6DD610D398DD4700"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 560576,
+        "sha256": "12C904CC51664325F5268A046B29ABDC37D2222B7A201A5CD62960195206D8B3"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M030",
+      "menu_name": "닭갈비",
+      "asset": "assets/images/menus/30.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 152,
+        "bytes": 17387,
+        "sha256": "04047603F6DFF73575B45648B48414CFCF98B6D2398449A417AF03025860994C"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 481571,
+        "sha256": "48122168C43E2B7C51CB270203984100B0064D34C8328A5C00EA9DA213DE3930"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M031",
+      "menu_name": "생선구이",
+      "asset": "assets/images/menus/31.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 203,
+        "height": 161,
+        "bytes": 15244,
+        "sha256": "A99A5DDCA06C9DF877CC95DF22C752C225111770B48305FCC930AA0C7EDB78C0"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 413340,
+        "sha256": "3DB0401069A16E648793C9B16681A8C2C4C78A459BE3FDBCCC5178EC06B36A68"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M032",
+      "menu_name": "고등어조림",
+      "asset": "assets/images/menus/32.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 148,
+        "bytes": 15693,
+        "sha256": "C6AF9CF7BC5079AAF13F24FF25809EAF05B6302A2390194B83C126A2AE4D08B9"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 516964,
+        "sha256": "09BA7CA075DEE4E5A7AF8DD25FA93402B0FC6F0E5FD57137E512846AFE21AC04"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M033",
+      "menu_name": "간장게장",
+      "asset": "assets/images/menus/33.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 153,
+        "bytes": 18268,
+        "sha256": "076C2DFC89C5A1FC336B5313CE20F15236F36E184DB66874B6822783740299C8"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 461861,
+        "sha256": "2B358427978D64AC54F3BA74CBB274BD501F1122EEC1A159228348B59C9F43E2"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M034",
+      "menu_name": "김밥",
+      "asset": "assets/images/menus/34.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 203,
+        "height": 153,
+        "bytes": 17178,
+        "sha256": "14A0AD9BE57567661255836E268CC779CCE33771E5A154E1FFC5AE34C2C0F524"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 402809,
+        "sha256": "5EEA9BB49124A785B140B339E15707A78764740DB6EA9A18C28EA55E9BAF5BD3"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M035",
+      "menu_name": "참치김밥",
+      "asset": "assets/images/menus/35.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 203,
+        "height": 153,
+        "bytes": 17178,
+        "sha256": "14A0AD9BE57567661255836E268CC779CCE33771E5A154E1FFC5AE34C2C0F524"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 386141,
+        "sha256": "5E5C28EADC9EFDD0245CFD5167A720FC8E2867DED9CB0499AD11971827AD1083"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M036",
+      "menu_name": "떡볶이",
+      "asset": "assets/images/menus/36.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 203,
+        "height": 153,
+        "bytes": 15428,
+        "sha256": "F6E2DFDCE8428D09F040A05091103EA70AA7FCB28E35B7ADE6941716A70E799F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 341958,
+        "sha256": "C70F8838C180C26DDFDB7F503D21A6072C20518D02DB594358946258063BE9CF"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M037",
+      "menu_name": "라볶이",
+      "asset": "assets/images/menus/37.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 157,
+        "bytes": 17335,
+        "sha256": "DB0E0135A002FA9504A39621F189D412DA40A0896CF728AD970C529E82EC208D"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 416161,
+        "sha256": "A29D32CA233130C611F66C775FC76E9F738F6B52374A7A865F97D4B817503837"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M038",
+      "menu_name": "순대",
+      "asset": "assets/images/menus/38.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 152,
+        "bytes": 17382,
+        "sha256": "0C76C98D231117186F9F3F982B070EBC0C353054EE398361CA1E096911BBCF33"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 397511,
+        "sha256": "D31628536E8703F382EB56671C73B5D0451C4F6E2FD5811F7E1B5B8599913076"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M039",
+      "menu_name": "튀김",
+      "asset": "assets/images/menus/39.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 17368,
+        "sha256": "FC54C478A95BE06EDC7F049CD107A6E4A06E77A10E1A0EE5C17FE55F0410EF1C"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 455751,
+        "sha256": "CAB4C133CBBDCA503C5C5C47A9D9CE06B20E4DECD00DF29BA59CC10E14D810C9"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M040",
+      "menu_name": "어묵",
+      "asset": "assets/images/menus/40.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 154,
+        "bytes": 16184,
+        "sha256": "4E51EA911EE6E1DCB97C0C267E01D25777F86C615D4499D530A1658041F1C39A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 376792,
+        "sha256": "3275214109AE079171C4DFADC16D175130183ED9E454EEEF6DD6FE18BEAC92F9"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M041",
+      "menu_name": "라면",
+      "asset": "assets/images/menus/41.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17689,
+        "sha256": "E45D6D2EE4397CA4AD7BE8204415CDD586951C1C2239A5AD85F184F4D3567A95"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 385886,
+        "sha256": "DC3CC425F97A51480025214F45DE69B3A538EC46D39F3C9A84978C19870F7F68"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M042",
+      "menu_name": "짜파게티",
+      "asset": "assets/images/menus/42.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16520,
+        "sha256": "957EC78CAB114BB6EB81E228D1CC5D56B6AFBC9CB4F4F17DC396C80D218B948A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 380002,
+        "sha256": "7177CD3050D50D3DA3800ECD4D0D2B14469EAD81E98A9156894E8667C9A478AB"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M043",
+      "menu_name": "쫄면",
+      "asset": "assets/images/menus/43.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16905,
+        "sha256": "995EA4EE6A2258703755BFF8CAD350FD54EABEDB5BEBE3101A056E8E5DC121F7"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 394664,
+        "sha256": "EDE880DC3AA4B5D17C4F19121FE3EBFC66FE36845E9ED0031453FB291AAD6741"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M044",
+      "menu_name": "비빔국수",
+      "asset": "assets/images/menus/44.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16905,
+        "sha256": "995EA4EE6A2258703755BFF8CAD350FD54EABEDB5BEBE3101A056E8E5DC121F7"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 412324,
+        "sha256": "960FA0D80FFDC284E1AF84EF692E4165B57EE71E34C06064EB19F85514A3B58C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M045",
+      "menu_name": "잔치국수",
+      "asset": "assets/images/menus/45.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 14816,
+        "sha256": "A7E17999CAD9410A90289A8FAFC72ED611A925479BC830D7635AEDA24474FDDD"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 318741,
+        "sha256": "332986DF6A3CFD3D14B884BF75D098380E46C97621FB02C053FBFC40E2EA34F6"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M046",
+      "menu_name": "칼국수",
+      "asset": "assets/images/menus/46.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15869,
+        "sha256": "BE50BD3A35CBB572572AFEBA452B09139ADD3FE453106BD2C1022CF1B0313D77"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 329439,
+        "sha256": "4B55F8BCD451D7F393A0830A8F7768479E848132FA507D4CF143FE7FEF32E337"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M047",
+      "menu_name": "수제비",
+      "asset": "assets/images/menus/47.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15133,
+        "sha256": "7BCB46A744DF959EAAFA3732CD96B4FE77B88C1DD7AEA035A3E076085DE9C82F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 305613,
+        "sha256": "C15D5C9EA3E19E8906FB8B0A7BF41ECD2D58126AAA4176D540E3B4191F499FFD"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M048",
+      "menu_name": "냉면",
+      "asset": "assets/images/menus/48.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15729,
+        "sha256": "4E6BFDDE077CC216084118D21C38FEB1C7BB2DC077A7386B7050DBD9F4262643"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 416060,
+        "sha256": "ABB2432C8A25684E8E37B1CB3C89DBB351D483195FE878EA4E64CBB0F40E256D"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M049",
+      "menu_name": "막국수",
+      "asset": "assets/images/menus/49.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16050,
+        "sha256": "8DDC28CA8D54A95A7FF53C87205A40D1EF3E12EF76001278C1E25C2DCE85A848"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 386775,
+        "sha256": "F86038E690BB9539102C055857D82C2B67FD42AD5B43B426E90F975A321695C4"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M050",
+      "menu_name": "우동",
+      "asset": "assets/images/menus/50.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17186,
+        "sha256": "11AEE6CE3461BE7DB39F9D2EF0793AC576ED8B1C1A8CD37815304A908C7614AB"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 326036,
+        "sha256": "5A53C8C2043EC9E36FAFD72A5388278F51663EEBD9DF6EEE08FC1F27AF050A78"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M051",
+      "menu_name": "돈까스",
+      "asset": "assets/images/menus/51.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17673,
+        "sha256": "F5FA4F107470C9A6A4F1917BDD49FFB75B0CDF933603049E3D50455C051AEF4A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 459832,
+        "sha256": "3AEDA9E93716280FAAF331F23D952CA69A6F5C3C757A94319538FAFD3E070381"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M052",
+      "menu_name": "치즈돈까스",
+      "asset": "assets/images/menus/52.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17439,
+        "sha256": "103DAD9B553EE1EDBAB47FD52D2BC2ECA945F1D1ACE5B7076E1D6B0B50016EFA"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 427091,
+        "sha256": "81A6BE138B8F5646829063A42E2750F8A53757AF688088C8BE2DBCE843C5AAF1"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M053",
+      "menu_name": "카레라이스",
+      "asset": "assets/images/menus/53.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16118,
+        "sha256": "4D1526CB0623CA58E62D95764E11F68218CDF7A81562FB82496DB70202EFBE4A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 377614,
+        "sha256": "3CF624EA5CE92982052731FEB555ECAA4338DCBDEA62E7FF68FCB33626E82825"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M054",
+      "menu_name": "규동",
+      "asset": "assets/images/menus/54.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16530,
+        "sha256": "8C9CB5A4F025A016BE8AC88E75734C903EC89F4D5A797351D6D8FA4ECB59257D"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 394153,
+        "sha256": "2291ECD220891FBC343628C0710AAEA6C9499F393E960E79D6098D100B5AF675"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M055",
+      "menu_name": "가츠동",
+      "asset": "assets/images/menus/55.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16778,
+        "sha256": "591E9E4AE380454420819AF834F64B584F4B374D9DDCBF10B94B09CAB8B31A7F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 382281,
+        "sha256": "BBBC9CE5FD6DBC9504C510E5D68A1A72D34FB629D703A295BCA8F492349712CB"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M056",
+      "menu_name": "오므라이스",
+      "asset": "assets/images/menus/56.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 14527,
+        "sha256": "0444150AF90707CEA8CFEE6630707CCE2C832C6F3FC99B3179B22A4D8F6A236D"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 344746,
+        "sha256": "AA57C35AAED36F89B700423BCF7F1614C924192DA5DB17FA7169D3C79E17733B"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M057",
+      "menu_name": "초밥",
+      "asset": "assets/images/menus/57.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 16150,
+        "sha256": "8B436F40DA9759CF274954F0E157A340900F1EBD778942906ED5F2E21CF17626"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 433304,
+        "sha256": "252F77CC50868777E3A66F9A8632D917D473707C9033D5988CE1C02D6956C696"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M058",
+      "menu_name": "회덮밥",
+      "asset": "assets/images/menus/58.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15604,
+        "sha256": "776110784FAC57A0B48378A4F8BE28997715E8E83BD0A2B5C7DF2BE32A12ED1C"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 394910,
+        "sha256": "8B9065F437242E40CCA65B2B0928BD6447CD34016D4284FD718AFF492B6B3130"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M059",
+      "menu_name": "라멘",
+      "asset": "assets/images/menus/59.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 190,
+        "height": 158,
+        "bytes": 13592,
+        "sha256": "434742259CC7F866D2C2423FA5CA0A92F5DF17801656AA6693714C132C4CDD99"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 469573,
+        "sha256": "268F463A867D2842CA8E8DF9E6B281C86D63864D37A7C310A37F6E895CB1624A"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M060",
+      "menu_name": "짜장면",
+      "asset": "assets/images/menus/60.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17163,
+        "sha256": "CDA71F5B9B9AFF7111AA8FEBC14F9745B1724FEB87F61C1E83B7D18BC9C095B1"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 438328,
+        "sha256": "899CC4C9E7F21F70E13A6D52EDD5D42E7B2A48B980D64278CEA1BA5DA1D965A4"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M061",
+      "menu_name": "짬뽕",
+      "asset": "assets/images/menus/61.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17635,
+        "sha256": "731CA5855AC1BA5AA1B73250C392E114215B78E2F058DD9F4BEDA523BF4CDA14"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 400811,
+        "sha256": "BFD1AC455B7CA563C89E9BDE65A55F268DB3B10558D36247A4DFD746EB729D7B"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M062",
+      "menu_name": "탕수육",
+      "asset": "assets/images/menus/62.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17281,
+        "sha256": "997CC934ABF45356A464E61112092EE141EF358B5B0778C25FF37933105B21F3"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 364056,
+        "sha256": "E46377858F0387D4347E9D15BD37E3C45A243C01FE24C978951585B7B789C66C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M063",
+      "menu_name": "중식볶음밥",
+      "asset": "assets/images/menus/63.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17874,
+        "sha256": "67257868421C9D94EB158A96F376850169A45D8BD97D9C2FED5E409972DA3733"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 405666,
+        "sha256": "0B6007FAF3C50B32741F281E96C6DEFC579B55D2D338317F5C9F5583706AEFCD"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M064",
+      "menu_name": "마파두부덮밥",
+      "asset": "assets/images/menus/64.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17098,
+        "sha256": "9BE9BECE95D5FE7057855241AC09BC799326BCC457B5100C5806B3AA5478CD49"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 424358,
+        "sha256": "21BF045DC5377C0B878C39CB0C90D3A593415D965CE80D3EFDC9F08A7FF77BA9"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M065",
+      "menu_name": "양장피",
+      "asset": "assets/images/menus/65.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17017,
+        "sha256": "0AA86EAAA84A05E01639EF98FAE2A614AD0FCC50ED236AFAD0194B603800CE6B"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 390665,
+        "sha256": "35EBD586BF1B653E28B69CC3DACB4DDCD2F7A076636B659E5B55430A36244064"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M066",
+      "menu_name": "고추잡채",
+      "asset": "assets/images/menus/66.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17017,
+        "sha256": "0AA86EAAA84A05E01639EF98FAE2A614AD0FCC50ED236AFAD0194B603800CE6B"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 406541,
+        "sha256": "DBC62768C5BD9BB5404B9BF96982A7ED1EDBB0DE0A99CB323D7E983B54E24D1A"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M067",
+      "menu_name": "마라탕",
+      "asset": "assets/images/menus/67.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 17490,
+        "sha256": "59BE139BE0AB4CF37CBBF00EE9B835B2640AA339A9ADFEA9A7EAA655DBE37AD8"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 456030,
+        "sha256": "9D81F8D2213A394E35AE934279D6006523E1FF85D9F610B7EA23237121076796"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M068",
+      "menu_name": "마라샹궈",
+      "asset": "assets/images/menus/68.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 18150,
+        "sha256": "D1591A8E39B40414A71B2747A7C3930EAE6E4ACD86B57D4184405DEE0D4FFCC8"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 477667,
+        "sha256": "41BCD577D963F6BA142DEE0BEB029779D1576AF3FE801DC0D0E888D7552552D0"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M069",
+      "menu_name": "꿔바로우",
+      "asset": "assets/images/menus/69.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15763,
+        "sha256": "49DA55DC42149E457C70EEF12E7D5A5F8A3D25C177CA32EA8694CA2AEFB2D743"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 429913,
+        "sha256": "B5B654CF34BC3C63B30C654D91A53CE65BC49A8EB37990589325899375FFC37A"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M070",
+      "menu_name": "토마토파스타",
+      "asset": "assets/images/menus/70.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 158,
+        "bytes": 15551,
+        "sha256": "6819F3CDD628EE0B9B6673E1DB94100075E3686B8D740ACF0134592A55DF7C2A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 349715,
+        "sha256": "AB4EF3F30FEF0DD558D3159AFB13129F49CB64B982E4F64DC679D7E91C2BC0C4"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M071",
+      "menu_name": "크림파스타",
+      "asset": "assets/images/menus/71.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 14317,
+        "sha256": "094F4F07B7DFB6DB12686BA60A59D69D450BF03C8187F3B9938C4DE4360C4D42"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 313667,
+        "sha256": "8F9FE9812BC7B178994D52544AC841A0E92E37E081A973EABBE07BB7DBC44058"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M072",
+      "menu_name": "알리오올리오",
+      "asset": "assets/images/menus/72.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 14635,
+        "sha256": "B045BAC72BA164A62C348E4A8E3D7F682A6C8366364B363D6B40E7BF7A32DDE4"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 324589,
+        "sha256": "E03767BD7F0105442D0010003F85F07D2E87D3567619C350DDC0A1356B7D8467"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M073",
+      "menu_name": "리조또",
+      "asset": "assets/images/menus/73.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 15478,
+        "sha256": "B0B86925252E54F12EDD418817F17137A83624679442EC84AE00D3F5B72EC79E"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 340269,
+        "sha256": "AD995C30E977ADF6C6BF89A285E9B6275FFB20897C42B9B814000BB93694CACF"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M074",
+      "menu_name": "피자",
+      "asset": "assets/images/menus/74.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 18894,
+        "sha256": "E75EB3A2237DAB2BE9A2A588A02ACF466F0C37AD986B71C6C2977C00EB164F1D"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 492333,
+        "sha256": "27EFEAE5EE7A810767CFAAF7BA28D7386480373BB2283F6CE40272C60BC685B9"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M075",
+      "menu_name": "스테이크",
+      "asset": "assets/images/menus/75.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 16668,
+        "sha256": "90E393CCE3A9B165343959D406B354F9EB5DE4AE404359F775082D79100ACC86"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 390385,
+        "sha256": "A5CFC7493279F2CE591A1F83A131CAC654718E367F73FBA799E1DF3219DAC8A5"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M076",
+      "menu_name": "햄버거",
+      "asset": "assets/images/menus/76.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 15079,
+        "sha256": "C3AEA9B437C163B34B14007CD9FAC10984448C5AD54152045E9B7BD398A43C0B"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 422045,
+        "sha256": "31FE107F301C39AB2722B359BD6815F6DE508C51852FDBD5C651BCC4150C6893"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M077",
+      "menu_name": "치킨버거",
+      "asset": "assets/images/menus/77.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 16033,
+        "sha256": "8DD8919B9F5E945D9255D4EBBFD6A5933EF533B9D50BC179009C53765700B62F"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 422078,
+        "sha256": "C42C82096EF66D38F4B8D5D7A26D52A1F7A06E264AA7F58B92B14092F6E36CCE"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M078",
+      "menu_name": "샌드위치",
+      "asset": "assets/images/menus/78.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 16637,
+        "sha256": "9A540251AA89ADAB3E278E4A124680193A6A2FC1720591A73DD1EBDA5DB3FBA2"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 382288,
+        "sha256": "1CE116C28952AF9DF9DAEABCCD3125C87F26CAF10F04DD91D1192830F5285C81"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M079",
+      "menu_name": "핫도그",
+      "asset": "assets/images/menus/79.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 13774,
+        "sha256": "D4774313136F4F8583158E705ACF38111DECA761C7AE9045FBA3F5B8EA4BBAAA"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 326219,
+        "sha256": "678999D31D7D3C9441A96CFF610421C0067B606784090762E595E6EDD2F1D5E3"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M080",
+      "menu_name": "후라이드치킨",
+      "asset": "assets/images/menus/80.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 160,
+        "bytes": 18162,
+        "sha256": "3EF3D88843F8D5BA20325446F4728973FAF1A896F2D333239729A78E71B3DD27"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 482895,
+        "sha256": "78391D0965B6AAEA5F469D24AF6CC679D380FFF7E6596436B3A659924576D0BA"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M081",
+      "menu_name": "양념치킨",
+      "asset": "assets/images/menus/81.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 161,
+        "bytes": 18173,
+        "sha256": "FB5F4FD710DA0626A3A72A47DF31A30513594BC81D0810610A5F84DFB0321CAE"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 452417,
+        "sha256": "AECFB4F4C8CA0B043017F77DAFB0A9F64C3B2B32D8F088FADCF7D33FF4444407"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M082",
+      "menu_name": "간장치킨",
+      "asset": "assets/images/menus/82.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 204,
+        "height": 161,
+        "bytes": 17695,
+        "sha256": "6A15D8AC70E6006B32B8684AE45300C5695EF6E051B54709267054BD7B121DB4"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 480632,
+        "sha256": "DD9AB6A52663AA98FBC532B82D22E2F53EE2A2D247205A4245E4A6638D5FB447"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M083",
+      "menu_name": "닭강정",
+      "asset": "assets/images/menus/83.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19205,
+        "sha256": "29EECD97E06B18F809418C9E7033C8798AC4652AC51300EDB801E55DF81BE3FB"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 455539,
+        "sha256": "E82254DD1C035BFD5A8FF36004E724D1492A158668B6B474601387AAC6EA48D9"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M084",
+      "menu_name": "샐러드",
+      "asset": "assets/images/menus/84.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19920,
+        "sha256": "2200A1D626E903D5300A47A7C52F4C2B6602A7616F2D0326B5C5568E19A376AC"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 467901,
+        "sha256": "E90247D2BE832C4A4584C903E61EB250941B574C7D40D768D4DE3DAC348628E6"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M085",
+      "menu_name": "닭가슴살샐러드",
+      "asset": "assets/images/menus/85.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 20056,
+        "sha256": "1340B2D5CB23C52A497003AB3BCF104F85A84EC3CE732181023C7562B175D811"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 437564,
+        "sha256": "917DC0D8A4554FE56D4EF4114B2935C897766421E80FF5FEF7DE77A34AAA1237"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M086",
+      "menu_name": "포케",
+      "asset": "assets/images/menus/86.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19331,
+        "sha256": "E05CD7A58C1CE4EAD9B1D2C37DB59809BC0D33CC9D96675FB21BA8E3F3A9FD18"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 431904,
+        "sha256": "E084FF122EAB71CDA7060E7845441408C0F29822A93BB55B79FDDE8CEABED83B"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M087",
+      "menu_name": "샤브샤브",
+      "asset": "assets/images/menus/87.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19900,
+        "sha256": "718924DE5958F2669AF4B1B6F23F48663FD8FB93E664B7260C543658B3447394"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 396948,
+        "sha256": "ECB01DF7D19E8AD294FBE49FA6AC51442DDAC6D0BC954965E909FFB3D718A18D"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M088",
+      "menu_name": "월남쌈",
+      "asset": "assets/images/menus/88.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19689,
+        "sha256": "3EDBD83D734CD94D8E841B006F4676B221D0728593B7B75F98DEBE7B41B9AD67"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 437343,
+        "sha256": "FBF3DD3F658CBBF7CC314B8992C57BA687C4095A8E73D23517A22E6F630E948C"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M089",
+      "menu_name": "쌀국수",
+      "asset": "assets/images/menus/89.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 17709,
+        "sha256": "1C871E4A89FDEC85B6960B2757679A4C66A5FB30D68F3A597924D42852F186ED"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 370140,
+        "sha256": "ACEACB6212830796243541B39D0A417DFA0B42E0B0D2651A5A0FFEBBCDBEA244"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M090",
+      "menu_name": "팟타이",
+      "asset": "assets/images/menus/90.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 17472,
+        "sha256": "501B70BCCA69F7EC7C48022F5F2CF0E3F10941501745A5E00E8F1F1ACEA8518A"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 410640,
+        "sha256": "508E019C86CE030A1488D066CAA9DCB7F3896919C58DF63E4B8D6E4863D4EA96"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M091",
+      "menu_name": "나시고랭",
+      "asset": "assets/images/menus/91.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19479,
+        "sha256": "2231616B777ED0568A10C559682DF8BD2B0387E475385BCC2EABD21DF11D9D10"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 420542,
+        "sha256": "312283BAD8F7BDF2C9645455FC8DD2E09EEBCE5166BBD9310BB698EC4742A6D6"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M092",
+      "menu_name": "타코",
+      "asset": "assets/images/menus/92.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 19048,
+        "sha256": "9D29413E7AFCE13324622325513403D8565C57CBCA17ED2CEF0180EEBA355749"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 433193,
+        "sha256": "3C9F661913B5EB7EA172283343E00780916AE8A43B3463EF0D962A40627750AC"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M093",
+      "menu_name": "부리또",
+      "asset": "assets/images/menus/93.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 18696,
+        "sha256": "29D9A811E738FC567AC0A924B70BC4E61D9C5E8EA90014960A45C09BFA3DB403"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 445354,
+        "sha256": "47081FECF9B55B38B73F87F43C5302F887F505CEEB0DC0A6F196D92DB25B4756"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M094",
+      "menu_name": "샌드위치랩",
+      "asset": "assets/images/menus/94.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 17394,
+        "sha256": "55EE3CB641588785F618577CA307C07AECADD47981919294761EAD1C86DF413D"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 380911,
+        "sha256": "DEC48055B75C41C96B38A33ECDDCB8507EAB685B0FFF927915BFF4AFD5768301"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M095",
+      "menu_name": "죽",
+      "asset": "assets/images/menus/95.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 16396,
+        "sha256": "137E48D6DC45D3D3062168B0C6F1952CAD39D7470C66E7B30D1B4119E03D8AF6"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 300731,
+        "sha256": "87DE8F90472B471CE6A9D018669B4038FDCA259AA5006710708D99EBE87259C5"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M096",
+      "menu_name": "전복죽",
+      "asset": "assets/images/menus/96.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 18637,
+        "sha256": "D2721E391AA86000EC0904D8043C85E027C83C577DA9BB40B4EB7702746E1523"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 341997,
+        "sha256": "A99004BB9F65E0B1B9D906575F17A4B81F1191BE4A72DCDF915B5CB860067370"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M097",
+      "menu_name": "계란찜",
+      "asset": "assets/images/menus/97.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 16290,
+        "sha256": "73C95EE827E1EE3EB90B61DA0184F66A16D3D77A8FC99A8C2949321306AE2648"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 384701,
+        "sha256": "D9076A934B39EC23DD997959898181A9AFE0257CE35F817A4151BEC0ABD04550"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M098",
+      "menu_name": "토스트",
+      "asset": "assets/images/menus/98.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 16448,
+        "sha256": "1728C42C4B92743FCBA0A4B2F168B3D2EC9E3EE9130C5B971407CB3DF453BA61"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 386320,
+        "sha256": "EB942AFDBF6CC494E1F8F57B83EB2029337B59024E518DA9DD08C999A46FDBA6"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M099",
+      "menu_name": "오므라이스",
+      "asset": "assets/images/menus/99.jpg",
+      "action": "restoration",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 15323,
+        "sha256": "B8587362A3EFA98F97787AF7E7FE3C47DC2B303220BBDFFC53179EB873B93B44"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 323103,
+        "sha256": "181DE0ADFE82B14724850800D59F876E318E08D7570FE68ED6F27CA68189F5FD"
+      },
+      "visually_reviewed": true
+    },
+    {
+      "menu_id": "M100",
+      "menu_name": "고기덮밥",
+      "asset": "assets/images/menus/100.jpg",
+      "action": "recreation",
+      "original": {
+        "width": 221,
+        "height": 161,
+        "bytes": 17824,
+        "sha256": "25BD2F1A41D4EA341F30F4699F2DE90B3F7829F6D202FD3FD80269627C3AACE9"
+      },
+      "replacement": {
+        "width": 1448,
+        "height": 1086,
+        "bytes": 382984,
+        "sha256": "9C43CB1992270DEC6B8AFDF9918950724937EFFAE48C34D8D7243629B7905453"
+      },
+      "visually_reviewed": true
+    }
+  ],
+  "validation": {
+    "menu_catalog_identical": true,
+    "all100_transferred_hashes_match": true,
+    "target_flutter_tests": {
+      "command": "flutter test --reporter expanded test/recommendation_engine_test.dart test/home_hero_image_service_test.dart",
+      "passed": 19
+    }
+  }
+}
