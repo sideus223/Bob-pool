@@ -36,7 +36,22 @@ Widget app(Widget home) => RepaintBoundary(
 
 Future<void> capture(WidgetTester tester, String name) async {
   if (captureDirectory.isEmpty) return;
+  final images = find.byType(Image).evaluate().toList();
+  await tester.runAsync(() async {
+    await Future.wait(
+      images.map(
+        (element) => precacheImage((element.widget as Image).image, element),
+      ),
+    );
+  });
   await tester.pump();
+  for (final image in tester.widgetList<RawImage>(find.byType(RawImage))) {
+    expect(
+      image.image,
+      isNotNull,
+      reason: 'Capture only after image pixels are ready',
+    );
+  }
   final boundary =
       boundaryKey.currentContext!.findRenderObject()! as RenderRepaintBoundary;
   await tester.runAsync(() async {
@@ -160,7 +175,7 @@ void main() {
     await capture(tester, 'home-current');
     await tester.pumpWidget(app(const MyPage()));
     await tester.pumpAndSettle();
-    await capture(tester, 'mypage-current');
+    await capture(tester, 'mypage-bobpool-profile');
     final posts = [
       PostModel(
         id: 'preview-1',

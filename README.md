@@ -104,7 +104,7 @@
 <p>
   <img src="docs/images/visual-refresh/result-current.png" width="220" alt="음식 추천 결과와 결정 버튼">
   <img src="docs/images/visual-refresh/board-current.png" width="220" alt="밥풀이 프로필을 적용한 게시판">
-  <img src="docs/images/visual-refresh/mypage-current.png" width="220" alt="새 마이페이지">
+  <img src="docs/images/visual-refresh/mypage-bobpool-profile.png" width="220" alt="새 마이페이지">
 </p>
 
 <br><br><br>
@@ -236,7 +236,7 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
 <p>
   <img src="docs/images/visual-refresh/result-current.png" width="220" alt="料理の推薦結果">
   <img src="docs/images/visual-refresh/board-current.png" width="220" alt="掲示板">
-  <img src="docs/images/visual-refresh/mypage-current.png" width="220" alt="マイページ">
+  <img src="docs/images/visual-refresh/mypage-bobpool-profile.png" width="220" alt="マイページ">
 </p>
 
 <br><br><br>
