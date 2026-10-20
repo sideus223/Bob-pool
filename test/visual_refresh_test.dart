@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:bp2/core/theme/app_theme.dart';
+import 'package:bp2/core/app_config.dart';
 import 'package:bp2/models/board_page_result.dart';
 import 'package:bp2/models/post_model.dart';
 import 'package:bp2/routes/app_routes.dart';
@@ -20,6 +21,7 @@ import 'package:bp2/services/home_hero_image_service.dart';
 import 'package:bp2/widgets/menu_summary_card.dart';
 import 'package:bp2/widgets/recommendation/bobpool_cooker.dart';
 import 'support/phone_preview.dart';
+import 'support/main_mode_preview.dart';
 
 const captureDirectory = String.fromEnvironment('UI_CAPTURE_DIR');
 final boundaryKey = GlobalKey();
@@ -79,6 +81,7 @@ void main() {
     addTearDown(tester.view.resetPhysicalSize);
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.runAsync(() async {
+      if (!AppConfig.demoMode) await prepareMainModePreview();
       await LocalRecommendService.getAllMenus();
       final font = FontLoader('NotoSansKR')
         ..addFont(rootBundle.load('assets/fonts/NotoSansKR.ttf'));
@@ -166,6 +169,11 @@ void main() {
     await capture(tester, 'random-current');
     await tester.pumpWidget(app(const HomePage()));
     await tester.pumpAndSettle();
+    if (!AppConfig.demoMode) {
+      expect(find.text('로컬 데모 · 로그인 없이 체험'), findsNothing);
+      expect(find.text('안녕하세요, 밥풀님!'), findsOneWidget);
+      expect(find.text('연결 버전에서 이용 가능'), findsNothing);
+    }
     await tester.runAsync(() async {
       final path = await HomeHeroImageService.instance.imageForSession;
       await precacheImage(
@@ -177,6 +185,12 @@ void main() {
     await capture(tester, 'home-current');
     await tester.pumpWidget(app(const MyPage()));
     await tester.pumpAndSettle();
+    if (!AppConfig.demoMode) {
+      expect(find.text('밥풀님'), findsOneWidget);
+      expect(find.text('bobpool@example.com'), findsOneWidget);
+      expect(find.text('체험 사용자님'), findsNothing);
+      expect(find.text('로컬 데모 · 계정 연결 없음'), findsNothing);
+    }
     await capture(tester, 'mypage-bobpool-profile');
     final posts = [
       PostModel(

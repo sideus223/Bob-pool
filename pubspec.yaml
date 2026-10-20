@@ -19,6 +19,8 @@ dependencies:
 
 dev_dependencies:
   fake_cloud_firestore: 4.1.1
+  firebase_auth_platform_interface: 9.0.1
+  firebase_core_platform_interface: 7.0.1
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0

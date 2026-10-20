@@ -93,13 +93,13 @@
 ### 주요 화면
 
 <p>
-  <img src="docs/images/visual-refresh/phone-home-recommendation.png" width="100%" alt="홈 · 맞춤 추천 · 랜덤 추천">
+  <img src="docs/images/visual-refresh/main-phone-home-recommendation.png" width="100%" alt="홈 · 맞춤 추천 · 랜덤 추천">
 </p>
 
 <br>
 
 <p>
-  <img src="docs/images/visual-refresh/phone-result-community.png" width="100%" alt="추천 결과 · 게시판 · 마이페이지">
+  <img src="docs/images/visual-refresh/main-phone-result-community.png" width="100%" alt="추천 결과 · 게시판 · 마이페이지">
 </p>
 
 <br><br><br>
@@ -236,13 +236,13 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
 ### 主な画面
 
 <p>
-  <img src="docs/images/visual-refresh/phone-home-recommendation.png" width="100%" alt="ホーム・条件付き推薦・ランダム推薦">
+  <img src="docs/images/visual-refresh/main-phone-home-recommendation.png" width="100%" alt="ホーム・条件付き推薦・ランダム推薦">
 </p>
 
 <br>
 
 <p>
-  <img src="docs/images/visual-refresh/phone-result-community.png" width="100%" alt="推薦結果・掲示板・マイページ">
+  <img src="docs/images/visual-refresh/main-phone-result-community.png" width="100%" alt="推薦結果・掲示板・マイページ">
 </p>
 
 <br><br><br>
