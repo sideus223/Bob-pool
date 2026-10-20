@@ -18,7 +18,8 @@ class HomeShortcutCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => Card(
-    elevation: 1,
+    elevation: 0,
+    color: AppTheme.panelColor,
     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
     child: InkWell(
       onTap: onTap,

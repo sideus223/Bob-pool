@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import '../widgets/bottom_nav_bar.dart';
 import '../services/auth_service.dart';
 import '../routes/app_routes.dart';
+import '../widgets/bobpool_avatar.dart';
+import '../widgets/home/home_shortcut_card.dart';
+import '../core/theme/app_theme.dart';
 
 class MyPage extends StatelessWidget {
   const MyPage({super.key});
@@ -13,39 +16,74 @@ class MyPage extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(24),
         children: [
-          const CircleAvatar(
-            radius: 40,
-            child: Icon(Icons.person_outline, size: 40),
+          Container(
+            padding: const EdgeInsets.all(20),
+            decoration: BoxDecoration(
+              color: AppTheme.panelColor,
+              borderRadius: BorderRadius.circular(20),
+            ),
+            child: Row(
+              children: [
+                const BobpoolAvatar(radius: 38),
+                const SizedBox(width: 18),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${user?.name ?? '사용자'}님',
+                        style: Theme.of(context).textTheme.titleLarge,
+                      ),
+                      if (user?.email != null) ...[
+                        const SizedBox(height: 6),
+                        Text(
+                          user!.email,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(color: AppTheme.mutedColor),
+                        ),
+                      ],
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
-          const SizedBox(height: 16),
-          Text(
-            '${user?.name ?? '사용자'}님',
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleLarge,
+          const SizedBox(height: 20),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: HomeShortcutCard(
+                  icon: Icons.favorite_border,
+                  title: '찜한 메뉴',
+                  subtitle: '다시 먹고 싶은 한 끼',
+                  onTap: () =>
+                      Navigator.pushNamed(context, AppRoutes.favoriteMenu),
+                ),
+              ),
+              const SizedBox(width: 12),
+              Expanded(
+                child: HomeShortcutCard(
+                  icon: Icons.edit_note,
+                  title: '내 게시글',
+                  subtitle: '내가 나눈 한 끼 이야기',
+                  onTap: () => Navigator.pushNamed(context, AppRoutes.myPosts),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 28),
+          const Text(
+            '나의 밥풀',
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 8),
-          Text(user?.email ?? '', textAlign: TextAlign.center),
-          const SizedBox(height: 28),
           _item(
             context,
             Icons.restaurant_menu,
             '기분별 음식 관리',
             '기분에 맞는 메뉴를 직접 추가하거나 제외해요',
             AppRoutes.moodFoodManage,
-          ),
-          _item(
-            context,
-            Icons.favorite_border,
-            '찜한 메뉴',
-            '좋아요한 메뉴와 레시피를 다시 확인해요',
-            AppRoutes.favoriteMenu,
-          ),
-          _item(
-            context,
-            Icons.edit_note,
-            '내 게시글',
-            '내가 나눈 한 끼 이야기',
-            AppRoutes.myPosts,
           ),
           _item(
             context,

@@ -36,3 +36,9 @@ flutter:
     - assets/data/menus_dataset.json
     - assets/images/menus/
     - assets/icon/
+    - assets/illustrations/
+    - assets/illustrations/cooker/
+  fonts:
+    - family: NotoSansKR
+      fonts:
+        - asset: assets/fonts/NotoSansKR.ttf

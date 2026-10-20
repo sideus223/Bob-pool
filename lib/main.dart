@@ -61,6 +61,7 @@ class MyApp extends StatelessWidget {
       // AuthGate를 통해 로그인 상태에 따라 화면 분기
       home: AppConfig.demoMode ? const HomePage() : const AuthGate(),
       routes: AppRoutes.routes,
+      onGenerateRoute: AppRoutes.onGenerateRoute,
     );
   }
 }

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class BoardStyle {
   static const primary = Color(0xFFFD5D69);
-  static const background = Color(0xFFFFFDF9);
-  static const text = Color(0xFF32201C);
+  static const background = Colors.white;
+  static const text = Color(0xFF202124);
   static const softPink = Color(0xFFFFEEF0);
-  static const line = Color(0xFFF1E8E4);
+  static const line = Color(0xFFE6E8ED);
 }
 
 String boardFormatDateTime(DateTime? dateTime) {

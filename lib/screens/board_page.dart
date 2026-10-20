@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import '../models/board_page_result.dart';
+import '../widgets/board/board_feed_tile.dart';
 import '../models/post_model.dart';
 import '../routes/app_routes.dart';
 import '../widgets/bottom_nav_bar.dart';
@@ -7,7 +10,12 @@ import '../services/post_service.dart';
 import '../widgets/board/board_paged_list.dart';
 
 class BoardPage extends StatefulWidget {
-  const BoardPage({super.key});
+  final Future<BoardPageResult<PostModel>> Function(
+    DocumentSnapshot<Map<String, dynamic>>? cursor,
+  )?
+  loadPage;
+  final String? viewerUid;
+  const BoardPage({super.key, this.loadPage, this.viewerUid});
 
   @override
   State<BoardPage> createState() => _BoardPageState();
@@ -23,7 +31,9 @@ class _BoardPageState extends State<BoardPage> {
 
   @override
   Widget build(BuildContext context) {
-    final currentUid = FirebaseAuth.instance.currentUser?.uid;
+    final currentUid = widget.loadPage == null
+        ? FirebaseAuth.instance.currentUser?.uid
+        : widget.viewerUid;
 
     return PopScope(
       canPop: false,
@@ -36,7 +46,7 @@ class _BoardPageState extends State<BoardPage> {
         );
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFFDF9),
+        backgroundColor: Colors.white,
         appBar: AppBar(
           title: const Text(
             '오늘의 게시판',
@@ -48,9 +58,22 @@ class _BoardPageState extends State<BoardPage> {
         ),
         body: BoardPagedList<PostModel>(
           refreshKey: _refresh,
-          load: (cursor) => PostService.getPage(after: cursor),
-          itemBuilder: (context, post) =>
-              _buildPostCard(context, post, currentUid),
+          load:
+              widget.loadPage ?? (cursor) => PostService.getPage(after: cursor),
+          padding: const EdgeInsets.fromLTRB(24, 0, 24, 88),
+          header: const Padding(
+            padding: EdgeInsets.symmetric(vertical: 12),
+            child: Text(
+              '한 끼의 경험을 나눠요.',
+              style: TextStyle(color: Color(0xFF676B73)),
+            ),
+          ),
+          separator: const Divider(height: 1),
+          itemBuilder: (context, post) => BoardFeedTile(
+            post: post,
+            isLiked: currentUid != null && post.likedBy.contains(currentUid),
+            onTap: () => _open(AppRoutes.boardDetail, arguments: post),
+          ),
           empty: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -77,6 +100,8 @@ class _BoardPageState extends State<BoardPage> {
         floatingActionButton: Padding(
           padding: const EdgeInsets.only(bottom: 10),
           child: FloatingActionButton.extended(
+            elevation: 0,
+            highlightElevation: 0,
             onPressed: () => _open(AppRoutes.postWrite),
             backgroundColor: const Color(0xFFFD5D69),
             icon: const Icon(Icons.edit, color: Colors.white),
@@ -91,122 +116,6 @@ class _BoardPageState extends State<BoardPage> {
         ),
         bottomNavigationBar: const BottomNavBar(currentIndex: 2),
       ),
-    );
-  }
-
-  Widget _buildPostCard(
-    BuildContext context,
-    PostModel post,
-    String? currentUid,
-  ) {
-    String timeStr = '';
-    if (post.createdAt != null) {
-      final now = DateTime.now();
-      final difference = now.difference(post.createdAt!);
-      if (difference.inMinutes < 60) {
-        timeStr = '${difference.inMinutes}분 전';
-      } else if (difference.inHours < 24) {
-        timeStr = '${difference.inHours}시간 전';
-      } else {
-        timeStr = '${post.createdAt!.month}/${post.createdAt!.day}';
-      }
-    }
-
-    final bool isLiked =
-        currentUid != null && post.likedBy.contains(currentUid);
-
-    return Card(
-      margin: const EdgeInsets.only(bottom: 16),
-      elevation: 4,
-      shadowColor: Colors.black.withAlpha(20),
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
-      child: InkWell(
-        onTap: () => _open(AppRoutes.boardDetail, arguments: post),
-        borderRadius: BorderRadius.circular(16),
-        child: Padding(
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Row(
-                children: [
-                  const CircleAvatar(
-                    radius: 18,
-                    backgroundColor: Color(0xFFFFC6C9),
-                    child: Icon(
-                      Icons.person,
-                      size: 20,
-                      color: Color(0xFFFD5D69),
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        post.authorNickname,
-                        style: const TextStyle(fontWeight: FontWeight.bold),
-                      ),
-                      Text(
-                        timeStr,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-              const SizedBox(height: 16),
-              Text(
-                post.title,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                  color: Color(0xFF32201C),
-                ),
-              ),
-              const SizedBox(height: 8),
-              Text(
-                post.content,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.grey[800], height: 1.4),
-              ),
-              const SizedBox(height: 16),
-              Row(
-                children: [
-                  _buildIconStat(
-                    isLiked ? Icons.favorite : Icons.favorite_border,
-                    post.likeCount.toString(),
-                    color: isLiked ? Colors.red : Colors.grey,
-                  ),
-                  const SizedBox(width: 16),
-                  _buildIconStat(
-                    Icons.chat_bubble_outline,
-                    post.commentCount.toString(),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildIconStat(
-    IconData icon,
-    String count, {
-    Color color = Colors.grey,
-  }) {
-    return Row(
-      children: [
-        Icon(icon, size: 18, color: color),
-        const SizedBox(width: 4),
-        Text(count, style: TextStyle(color: color, fontSize: 14)),
-      ],
     );
   }
 }

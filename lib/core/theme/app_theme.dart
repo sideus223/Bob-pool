@@ -2,31 +2,39 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const Color primaryColor = Color(0xFFFD5D69);
-  static const Color backgroundColor = Color(0xFFFFFDF9);
-  static const Color textColor = Color(0xFF32201C);
+  static const Color backgroundColor = Colors.white;
+  static const Color textColor = Color(0xFF202124);
+  static const Color mutedColor = Color(0xFF676B73);
+  static const Color panelColor = Color(0xFFF4F5F7);
+  static const Color lineColor = Color(0xFFE6E8ED);
   static const Color secondaryColor = Color(0xFFFFC6C9);
 
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'NotoSansKR',
       colorScheme: ColorScheme.fromSeed(
         seedColor: primaryColor,
         primary: primaryColor,
         onPrimary: Colors.white,
         surface: backgroundColor,
         onSurface: textColor,
+        surfaceTint: Colors.transparent,
+        primaryContainer: const Color(0xFFFFEEF0),
       ),
       scaffoldBackgroundColor: backgroundColor,
-      // Removed unregistered font family for stability
 
       // AppBar Theme
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.white,
         elevation: 0,
-        centerTitle: true,
+        centerTitle: false,
+        titleSpacing: 24,
+        surfaceTintColor: Colors.transparent,
         titleTextStyle: TextStyle(
           color: textColor,
-          fontSize: 18,
+          fontFamily: 'NotoSansKR',
+          fontSize: 22,
           fontWeight: FontWeight.bold,
         ),
         iconTheme: IconThemeData(color: textColor),
@@ -35,7 +43,8 @@ class AppTheme {
       // Card Theme
       cardTheme: CardThemeData(
         color: Colors.white,
-        elevation: 4,
+        elevation: 0,
+        surfaceTintColor: Colors.transparent,
         shadowColor: Colors.black.withAlpha(20),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         margin: EdgeInsets.zero,
@@ -50,7 +59,11 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(
+            fontFamily: 'NotoSansKR',
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
@@ -62,7 +75,11 @@ class AppTheme {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(12),
           ),
-          textStyle: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          textStyle: const TextStyle(
+            fontFamily: 'NotoSansKR',
+            fontSize: 16,
+            fontWeight: FontWeight.bold,
+          ),
         ),
       ),
 
@@ -88,6 +105,17 @@ class AppTheme {
         ),
         hintStyle: TextStyle(color: textColor.withAlpha(128), fontSize: 14),
       ),
+
+      checkboxTheme: CheckboxThemeData(
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(4)),
+        fillColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.selected)
+              ? primaryColor
+              : Colors.white,
+        ),
+        checkColor: const WidgetStatePropertyAll(Colors.white),
+      ),
+      dividerTheme: const DividerThemeData(color: lineColor, thickness: 1),
 
       // Text Theme
       textTheme: const TextTheme(

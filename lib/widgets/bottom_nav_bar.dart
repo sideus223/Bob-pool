@@ -35,13 +35,7 @@ class BottomNavBar extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(13),
-            blurRadius: 10,
-            offset: const Offset(0, -4),
-          ),
-        ],
+        border: const Border(top: BorderSide(color: Color(0xFFE6E8ED))),
       ),
       child: BottomNavigationBar(
         currentIndex: currentIndex,
@@ -65,13 +59,13 @@ class BottomNavBar extends StatelessWidget {
             label: '홈',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.restaurant_menu_outlined),
-            activeIcon: _SelectedTabIcon(Icons.restaurant_menu),
+            icon: Icon(Icons.auto_awesome_outlined),
+            activeIcon: _SelectedTabIcon(Icons.auto_awesome),
             label: '추천',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard_outlined),
-            activeIcon: _SelectedTabIcon(Icons.dashboard),
+            icon: Icon(Icons.chat_bubble_outline),
+            activeIcon: _SelectedTabIcon(Icons.chat_bubble),
             label: '게시판',
           ),
           BottomNavigationBarItem(

@@ -10,7 +10,7 @@ class HomeMealCard extends StatelessWidget {
   Widget build(BuildContext context) => Container(
     clipBehavior: Clip.antiAlias,
     decoration: BoxDecoration(
-      color: const Color(0xFFFFE5DF),
+      color: AppTheme.panelColor,
       borderRadius: BorderRadius.circular(24),
     ),
     child: Column(

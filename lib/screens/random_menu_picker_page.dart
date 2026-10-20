@@ -5,6 +5,10 @@ import '../models/menu_model.dart';
 import '../models/recommendation_model.dart';
 import '../models/learning_model.dart';
 import '../widgets/bottom_nav_bar.dart';
+import '../core/theme/app_theme.dart';
+import '../services/visual_preferences.dart';
+import '../widgets/recommendation/bobpool_cooker.dart';
+import '../widgets/recommendation/recommendation_controls.dart';
 
 class RandomMenuPickerPage extends StatefulWidget {
   const RandomMenuPickerPage({super.key});
@@ -13,7 +17,8 @@ class RandomMenuPickerPage extends StatefulWidget {
   State<RandomMenuPickerPage> createState() => _RandomMenuPickerPageState();
 }
 
-class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
+class _RandomMenuPickerPageState extends State<RandomMenuPickerPage>
+    with SingleTickerProviderStateMixin {
   bool isRandomMode = false; // 기본값 맞춤 추천 (false)
   String selectedMood = "무난함";
   String selectedSituation = "혼밥";
@@ -21,33 +26,80 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
   double maxBudget = 25000;
   bool _isLoading = false;
 
-  // 프로젝트 확정 기분 상태 5개
-  final List<Map<String, String>> moodData = [
-    {"label": "기분 좋음", "emoji": "😊"},
-    {"label": "무난함", "emoji": "😐"},
-    {"label": "우울함", "emoji": "😢"},
-    {"label": "스트레스", "emoji": "😤"},
-    {"label": "피곤함", "emoji": "😔"},
-  ];
+  bool _skipAnimation = false;
+  bool _settingsReady = false;
+  bool _savingPreference = false;
+  late final AnimationController _motion;
 
-  // 상황 선택지 (데이터셋 기준)
-  final List<Map<String, String>> situations = [
-    {"label": "혼밥", "emoji": "🍚", "value": "혼밥"},
-    {"label": "친구랑", "emoji": "👥", "value": "친구랑"},
-    {"label": "데이트", "emoji": "💕", "value": "데이트"},
-    {"label": "든든하게", "emoji": "🍱", "value": "든든하게"},
-    {"label": "가볍게", "emoji": "🥗", "value": "가볍게"},
-    {"label": "빨리먹기", "emoji": "⏱️", "value": "빨리먹기"},
-  ];
+  @override
+  void initState() {
+    super.initState();
+    _motion = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 2600),
+    );
+    _loadSetting();
+  }
 
-  // 맵기 선택지
-  final List<String> spicyLevels = ["상관없음", "순함", "보통", "매움"];
+  Future<void> _loadSetting() async {
+    try {
+      final value = await VisualPreferences.skipAnimation();
+      if (mounted) {
+        setState(() {
+          _skipAnimation = value;
+          _settingsReady = true;
+        });
+      }
+    } catch (_) {
+      if (mounted) setState(() => _settingsReady = true);
+    }
+  }
+
+  Future<void> _changeSetting(bool? value) async {
+    if (value == null || _savingPreference) return;
+    final previous = _skipAnimation;
+    setState(() {
+      _skipAnimation = value;
+      _savingPreference = true;
+    });
+    try {
+      await VisualPreferences.setSkipAnimation(value);
+    } catch (_) {
+      if (mounted) {
+        setState(() => _skipAnimation = previous);
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('설정을 저장하지 못했어요. 다시 선택해 주세요.')),
+        );
+      }
+    } finally {
+      if (mounted) setState(() => _savingPreference = false);
+    }
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    for (var i = 0; i < 8; i++) {
+      precacheImage(AssetImage(BobpoolCooker.frameAsset(i)), context);
+    }
+  }
+
+  @override
+  void dispose() {
+    _motion.dispose();
+    super.dispose();
+  }
 
   Future<void> _handleRecommend() async {
+    if (_isLoading || !_settingsReady || _savingPreference) return;
     setState(() {
       _isLoading = true;
     });
 
+    final motion = _skipAnimation
+        ? Future<void>.value()
+        : _motion.forward(from: 0).orCancel;
+    final animationDone = motion.catchError((Object _) {});
     try {
       MenuModel result;
       RankedMenu? ranked;
@@ -82,6 +134,7 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
         result = ranked.menu;
       }
 
+      await animationDone;
       if (mounted) {
         Navigator.pushNamed(
           context,
@@ -100,6 +153,7 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
       }
     } catch (e) {
       if (mounted) {
+        _motion.stop(canceled: false);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text('추천 중 오류가 발생했습니다: $e'),
@@ -109,6 +163,7 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
       }
     } finally {
       if (mounted) {
+        _motion.stop(canceled: false);
         setState(() {
           _isLoading = false;
         });
@@ -118,400 +173,184 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage> {
 
   @override
   Widget build(BuildContext context) {
+    final disabled = _isLoading || !_settingsReady || _savingPreference;
     return PopScope(
       canPop: false,
-      onPopInvokedWithResult: (didPop, result) async {
-        if (didPop) return;
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          AppRoutes.home,
-          (route) => false,
-        );
+      onPopInvokedWithResult: (didPop, result) {
+        if (!didPop) {
+          Navigator.pushNamedAndRemoveUntil(
+            context,
+            AppRoutes.home,
+            (route) => false,
+          );
+        }
       },
       child: Scaffold(
-        backgroundColor: const Color(0xFFFFFDF9),
-        appBar: AppBar(
-          title: const Text(
-            '메뉴 추천',
-            style: TextStyle(fontWeight: FontWeight.bold),
-          ),
-          backgroundColor: Colors.white,
-          elevation: 0,
-          foregroundColor: const Color(0xFF32201C),
-        ),
+        appBar: AppBar(title: const Text('메뉴 추천')),
         body: SafeArea(
           child: Column(
             children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(24, 4, 24, 8),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: SegmentedButton<bool>(
+                    showSelectedIcon: false,
+                    style: SegmentedButton.styleFrom(
+                      selectedBackgroundColor: AppTheme.primaryColor,
+                      selectedForegroundColor: Colors.white,
+                      backgroundColor: AppTheme.panelColor,
+                      side: const BorderSide(color: AppTheme.lineColor),
+                    ),
+                    segments: const [
+                      ButtonSegment(value: false, label: Text('맞춤 추천')),
+                      ButtonSegment(value: true, label: Text('랜덤 추천')),
+                    ],
+                    selected: {isRandomMode},
+                    onSelectionChanged: _isLoading
+                        ? null
+                        : (value) => setState(() => isRandomMode = value.first),
+                  ),
+                ),
+              ),
               Expanded(
-                child: SingleChildScrollView(
-                  padding: const EdgeInsets.symmetric(horizontal: 24),
-                  child: _buildSelectionView(),
+                child: _isLoading && !_skipAnimation
+                    ? Center(
+                        child: Semantics(
+                          label: '밥풀이가 메뉴를 추천하고 있어요',
+                          liveRegion: true,
+                          child: BobpoolCooker(animation: _motion, size: 280),
+                        ),
+                      )
+                    : isRandomMode
+                    ? LayoutBuilder(
+                        builder: (context, constraints) =>
+                            SingleChildScrollView(
+                              child: ConstrainedBox(
+                                constraints: BoxConstraints(
+                                  minHeight: constraints.maxHeight,
+                                ),
+                                child: const Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 24,
+                                    vertical: 8,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      BobpoolCooker(size: 240),
+                                      SizedBox(height: 20),
+                                      Text(
+                                        '고민 없이, 한 끼 뽑기',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 27,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      ),
+                                      SizedBox(height: 12),
+                                      Text(
+                                        '예산 · 맵기 · 취향 조건 없이\n전체 메뉴에서 무작위로 골라요.',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          height: 1.7,
+                                          color: AppTheme.mutedColor,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                      )
+                    : SingleChildScrollView(
+                        padding: const EdgeInsets.symmetric(horizontal: 24),
+                        child: AbsorbPointer(
+                          absorbing: _isLoading,
+                          child: RecommendationControls(
+                            mood: selectedMood,
+                            situation: selectedSituation,
+                            spicy: selectedSpicy,
+                            budget: maxBudget,
+                            onMood: (v) => setState(() => selectedMood = v),
+                            onSituation: (v) =>
+                                setState(() => selectedSituation = v),
+                            onSpicy: (v) => setState(() => selectedSpicy = v),
+                            onBudget: (v) => setState(() => maxBudget = v),
+                          ),
+                        ),
+                      ),
+              ),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(20, 4, 20, 12),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (!isRandomMode && !_isLoading)
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 8,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFFFF1F4),
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: Text(
+                          '$selectedMood · $selectedSituation · 맵기 $selectedSpicy',
+                          key: const ValueKey('selected-conditions'),
+                          style: const TextStyle(
+                            fontSize: 13,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFFD5374D),
+                          ),
+                        ),
+                      ),
+                    CheckboxListTile(
+                      key: const ValueKey('skip-recommendation-animation'),
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _skipAnimation,
+                      onChanged: disabled ? null : _changeSetting,
+                      title: const Text(
+                        '애니메이션 건너뛰기',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: AppTheme.mutedColor,
+                        ),
+                      ),
+                    ),
+                    FilledButton.icon(
+                      onPressed: disabled ? null : _handleRecommend,
+                      icon: _isLoading
+                          ? const SizedBox.square(
+                              dimension: 20,
+                              child: CircularProgressIndicator(
+                                strokeWidth: 2,
+                                color: Colors.white,
+                              ),
+                            )
+                          : const Icon(Icons.casino_outlined),
+                      label: Text(
+                        _isLoading
+                            ? '추천 중...'
+                            : isRandomMode
+                            ? '아무거나 추천받기'
+                            : '이 조건으로 추천받기',
+                      ),
+                      style: FilledButton.styleFrom(
+                        minimumSize: const Size.fromHeight(54),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
           ),
         ),
         bottomNavigationBar: const BottomNavBar(currentIndex: 1),
-      ),
-    );
-  }
-
-  Widget _buildSelectionView() {
-    double buttonWidth = (MediaQuery.of(context).size.width - 48 - 40 - 12) / 2;
-
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      children: [
-        // 추천 방식 선택 UI
-        Container(
-          padding: const EdgeInsets.all(4),
-          decoration: BoxDecoration(
-            color: const Color(0xFFFFC6C9).withAlpha(77),
-            borderRadius: BorderRadius.circular(12),
-          ),
-          child: Row(
-            children: [
-              Expanded(
-                child: GestureDetector(
-                  onTap: _isLoading
-                      ? null
-                      : () => setState(() => isRandomMode = false),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      color: !isRandomMode
-                          ? const Color(0xFFFD5D69)
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      '맞춤 추천',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: !isRandomMode
-                            ? Colors.white
-                            : const Color(0xFF32201C),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              Expanded(
-                child: GestureDetector(
-                  onTap: _isLoading
-                      ? null
-                      : () => setState(() => isRandomMode = true),
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      color: isRandomMode
-                          ? const Color(0xFFFD5D69)
-                          : Colors.transparent,
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      '랜덤 추천',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        color: isRandomMode
-                            ? Colors.white
-                            : const Color(0xFF32201C),
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        const SizedBox(height: 24),
-
-        // 맞춤 추천 선택 시에만 표시되는 영역
-        if (!isRandomMode) ...[
-          _buildSectionCard(
-            '오늘 기분은 어때요? 😊',
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: moodData
-                  .map(
-                    (m) => SizedBox(
-                      width: buttonWidth,
-                      child: _moodButton(m['label']!, m['emoji']!, m['label']!),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildSectionCard(
-            '오늘의 상황은? 🎯',
-            Wrap(
-              spacing: 12,
-              runSpacing: 12,
-              children: situations
-                  .map(
-                    (s) => SizedBox(
-                      width: buttonWidth,
-                      child: _situationButton(
-                        s['label']!,
-                        s['emoji']!,
-                        s['value']!,
-                      ),
-                    ),
-                  )
-                  .toList(),
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildSectionCard(
-            '맵기 정도를 골라주세요 🔥',
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: spicyLevels.map((level) {
-                bool isSelected = selectedSpicy == level;
-                return GestureDetector(
-                  onTap: _isLoading
-                      ? null
-                      : () => setState(() => selectedSpicy = level),
-                  child: Container(
-                    width:
-                        (MediaQuery.of(context).size.width - 48 - 40 - 24) / 4,
-                    padding: const EdgeInsets.symmetric(vertical: 12),
-                    decoration: BoxDecoration(
-                      color: isSelected
-                          ? const Color(0xFFFD5D69)
-                          : const Color(0xFFFFC6C9),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Text(
-                      level,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold,
-                        color: isSelected
-                            ? Colors.white
-                            : const Color(0xFFFD5D69),
-                      ),
-                    ),
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
-          const SizedBox(height: 20),
-          _buildSectionCard(
-            '최대 예산은? 💰',
-            Column(
-              children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    const Text(
-                      '최대 금액',
-                      style: TextStyle(color: Color(0xFFEC888D)),
-                    ),
-                    Text(
-                      '₩${maxBudget.toInt().toString().replaceAllMapped(RegExp(r"(\d{1,3})(?=(\d{3})+(?!\d))"), (Match m) => "${m[1]},")}',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Color(0xFFFD5D69),
-                      ),
-                    ),
-                  ],
-                ),
-                Slider(
-                  value: maxBudget,
-                  min: 5000,
-                  max: 50000,
-                  divisions: 45,
-                  activeColor: const Color(0xFFFD5D69),
-                  inactiveColor: const Color(0xFFFFC6C9),
-                  onChanged: _isLoading
-                      ? null
-                      : (value) => setState(() => maxBudget = value),
-                ),
-                const Text(
-                  '메뉴의 예상 가격 상한이 이 금액 이내인 경우만 추천해요.',
-                  style: TextStyle(fontSize: 12),
-                ),
-                const Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '₩5,000',
-                      style: TextStyle(fontSize: 12, color: Color(0xFFEC888D)),
-                    ),
-                    Text(
-                      '₩50,000',
-                      style: TextStyle(fontSize: 12, color: Color(0xFFEC888D)),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        ] else ...[
-          // 랜덤 추천 모드일 때 보여줄 간단한 안내나 빈 공간
-          Container(
-            padding: const EdgeInsets.all(40),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(16),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.black.withAlpha(13),
-                  blurRadius: 10,
-                  offset: const Offset(0, 4),
-                ),
-              ],
-            ),
-            child: const Column(
-              children: [
-                Icon(Icons.casino_outlined, size: 64, color: Color(0xFFFD5D69)),
-                SizedBox(height: 16),
-                Text(
-                  '고민할 필요 없어요!\n주사위를 굴려 랜덤으로 메뉴를 추천해 드릴게요.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Color(0xFF32201C),
-                    height: 1.5,
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
-
-        const SizedBox(height: 32),
-        ElevatedButton.icon(
-          onPressed: _isLoading ? null : _handleRecommend,
-          icon: _isLoading
-              ? const SizedBox(
-                  width: 20,
-                  height: 20,
-                  child: CircularProgressIndicator(
-                    strokeWidth: 2,
-                    color: Colors.white,
-                  ),
-                )
-              : const Icon(Icons.casino_outlined),
-          label: Text(
-            _isLoading ? '추천 중...' : (isRandomMode ? '아무거나 추천받기' : '추천받기'),
-            style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFFD5D69),
-            foregroundColor: Colors.white,
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(16),
-            ),
-            elevation: 4,
-          ),
-        ),
-        const SizedBox(height: 40),
-      ],
-    );
-  }
-
-  Widget _buildSectionCard(String title, Widget content) {
-    return Container(
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(16),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withAlpha(13),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            title,
-            style: const TextStyle(
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-              color: Color(0xFF32201C),
-            ),
-          ),
-          const SizedBox(height: 16),
-          content,
-        ],
-      ),
-    );
-  }
-
-  Widget _moodButton(String label, String emoji, String value) {
-    bool isSelected = selectedMood == value;
-    return GestureDetector(
-      onTap: _isLoading ? null : () => setState(() => selectedMood = value),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFFD5D69) : const Color(0xFFFFC6C9),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(emoji, style: const TextStyle(fontSize: 32)),
-            const SizedBox(height: 8),
-            Text(
-              label,
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                color: isSelected ? Colors.white : const Color(0xFFFD5D69),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _situationButton(String label, String emoji, String value) {
-    bool isSelected = selectedSituation == value;
-    return GestureDetector(
-      onTap: _isLoading
-          ? null
-          : () => setState(() => selectedSituation = value),
-      child: Container(
-        padding: const EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(
-          color: isSelected ? const Color(0xFFFD5D69) : const Color(0xFFFFC6C9),
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(emoji, style: const TextStyle(fontSize: 24)),
-            const SizedBox(width: 8),
-            Flexible(
-              child: Text(
-                label,
-                style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.bold,
-                  color: isSelected ? Colors.white : const Color(0xFFFD5D69),
-                ),
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-          ],
-        ),
       ),
     );
   }

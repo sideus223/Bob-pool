@@ -46,7 +46,6 @@ class AppRoutes {
     board: (context) =>
         AppConfig.demoMode ? const ConnectionRequiredPage() : const BoardPage(),
     mypage: (context) => const MyPage(),
-    recommendResult: (context) => const RecommendResultPage(),
     boardDetail: (context) => AppConfig.demoMode
         ? const ConnectionRequiredPage()
         : const BoardDetailPage(),
@@ -63,4 +62,17 @@ class AppRoutes {
         ? const ConnectionRequiredPage()
         : const MyPostsPage(),
   };
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    if (settings.name != recommendResult) return null;
+    return PageRouteBuilder<void>(
+      settings: settings,
+      transitionDuration: const Duration(milliseconds: 260),
+      reverseTransitionDuration: const Duration(milliseconds: 180),
+      pageBuilder: (_, _, _) => const RecommendResultPage(),
+      transitionsBuilder: (_, animation, _, child) => FadeTransition(
+        opacity: CurvedAnimation(parent: animation, curve: Curves.easeOut),
+        child: child,
+      ),
+    );
+  }
 }

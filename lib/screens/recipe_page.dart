@@ -11,7 +11,7 @@ class RecipePage extends StatelessWidget {
     final steps = menu?.recipeSteps ?? const <String>[];
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFDF9),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           '${menu?.name ?? "메뉴"} 레시피',

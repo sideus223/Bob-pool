@@ -1,5 +1,7 @@
 # Bob-pool APK 다운로드
 
+현재 배포 APK는 빌드 12입니다. 최신 화면은 저장소 소스에 반영되어 있으며, 빌드 결과는 [GitHub Actions](https://github.com/sideus223/Bob-pool/actions)에서 확인할 수 있습니다.
+
 사용할 버전을 선택해 다운로드하세요. Android 7.0 이상에서 사용할 수 있습니다.
 
 | 버전 | 이용 방법 | 기록 저장 | 다운로드 |

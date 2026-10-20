@@ -17,7 +17,7 @@ class _MyPostsPageState extends State<MyPostsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFDF9),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           '내 게시글',

@@ -8,6 +8,7 @@ import '../services/user_menu_preference_service.dart';
 import '../core/app_config.dart';
 import '../widgets/menu_summary_card.dart';
 import '../widgets/recommendation_reason_card.dart';
+import '../widgets/recommendation/result_decision_buttons.dart';
 
 class RecommendResultPage extends StatefulWidget {
   const RecommendResultPage({super.key});
@@ -181,6 +182,14 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
     final menu = _menu;
     return Scaffold(
       appBar: AppBar(title: Text(_random ? '랜덤 추천 결과' : '나를 위한 추천')),
+      bottomNavigationBar: menu == null
+          ? null
+          : ResultDecisionButtons(
+              busy: _busy,
+              selected: _selected,
+              onSelect: _select,
+              onNext: () => _next(),
+            ),
       body: menu == null
           ? const Center(child: Text('추천 화면에서 메뉴를 먼저 선택해 주세요.'))
           : SafeArea(
@@ -188,11 +197,25 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
                 padding: const EdgeInsets.all(24),
                 children: [
                   MenuSummaryCard(menu: menu),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 4),
                   if (_ranked != null)
                     RecommendationReasonCard(result: _ranked!)
                   else
                     const Text('전체 메뉴에서 무작위로 골랐어요. 예산·맵기·취향 조건은 적용되지 않아요.'),
+                  const SizedBox(height: 12),
+                  ListTile(
+                    contentPadding: EdgeInsets.zero,
+                    title: const Text('레시피 보기'),
+                    trailing: const Icon(Icons.chevron_right),
+                    onTap: _busy
+                        ? null
+                        : () => Navigator.pushNamed(
+                            context,
+                            AppRoutes.recipe,
+                            arguments: menu,
+                          ),
+                  ),
+                  const Divider(height: 1),
                   if (_message != null)
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 16),
@@ -204,6 +227,11 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
                       ),
                     ),
                   const SizedBox(height: 20),
+                  const Text(
+                    '평소 취향은 어때요?',
+                    style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 12),
                   Row(
                     children: [
                       Expanded(
@@ -230,28 +258,6 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
                     ],
                   ),
                   const SizedBox(height: 12),
-                  FilledButton.icon(
-                    onPressed: _busy || _selected ? null : _select,
-                    icon: const Icon(Icons.check_circle_outline),
-                    label: Text(_selected ? '선택 기록 완료' : '오늘은 이 메뉴로 할게요'),
-                  ),
-                  const SizedBox(height: 12),
-                  OutlinedButton(
-                    onPressed: _busy
-                        ? null
-                        : () => Navigator.pushNamed(
-                            context,
-                            AppRoutes.recipe,
-                            arguments: menu,
-                          ),
-                    child: const Text('레시피 보기'),
-                  ),
-                  const SizedBox(height: 12),
-                  TextButton.icon(
-                    onPressed: _busy ? null : () => _next(),
-                    icon: const Icon(Icons.refresh),
-                    label: const Text('다른 메뉴 보기'),
-                  ),
                   if (_busy) const Center(child: CircularProgressIndicator()),
                   const SizedBox(height: 12),
                   Text(

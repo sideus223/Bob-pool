@@ -128,7 +128,7 @@ class _MoodFoodManagePageState extends State<MoodFoodManagePage> {
     }).toList();
 
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFDF9),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text(
           '기분별 음식 관리',

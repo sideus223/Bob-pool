@@ -38,11 +38,11 @@ void main() {
     await tester.tap(find.text('나에게 맞는 메뉴 찾기'));
     await tester.pumpAndSettle();
     await tester.scrollUntilVisible(
-      find.text('추천받기'),
+      find.text('이 조건으로 추천받기'),
       400,
       scrollable: find.byType(Scrollable).first,
     );
-    await tester.tap(find.text('추천받기'));
+    await tester.tap(find.text('이 조건으로 추천받기'));
     await tester.pumpAndSettle();
     expect(find.text('나를 위한 추천'), findsOneWidget);
     expect(find.text('이 메뉴를 추천한 이유'), findsOneWidget);
@@ -67,8 +67,8 @@ void main() {
     await tester.tap(find.text('좋아요 · 찜'));
     await tester.pumpAndSettle();
     expect(await UserMenuPreferenceService.getFavoriteMenuIds(), [first]);
-    await tester.ensureVisible(find.text('오늘은 이 메뉴로 할게요'));
-    await tester.tap(find.text('오늘은 이 메뉴로 할게요'));
+    await tester.ensureVisible(find.text('오늘은 이거 먹을래요'));
+    await tester.tap(find.text('오늘은 이거 먹을래요'));
     await tester.pumpAndSettle();
     expect(
       (await UserMenuPreferenceService.snapshot('무난함')).selections[first],

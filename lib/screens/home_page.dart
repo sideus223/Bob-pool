@@ -21,8 +21,6 @@ class HomePage extends StatelessWidget {
         title: const Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Icon(Icons.rice_bowl, color: AppTheme.primaryColor, size: 28),
-            SizedBox(width: 8),
             Text(
               '밥풀',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800),
@@ -32,9 +30,7 @@ class HomePage extends StatelessWidget {
         actions: [
           IconButton.filledTonal(
             tooltip: '설정',
-            style: IconButton.styleFrom(
-              backgroundColor: const Color(0xFFF8EEEA),
-            ),
+            style: IconButton.styleFrom(backgroundColor: AppTheme.panelColor),
             icon: const Icon(Icons.settings_outlined),
             onPressed: () => Navigator.pushNamed(context, AppRoutes.settings),
           ),
@@ -58,7 +54,7 @@ class HomePage extends StatelessWidget {
             Text(
               '안녕하세요, $name님!',
               style: const TextStyle(
-                color: Color(0xFF7F6D66),
+                color: AppTheme.mutedColor,
                 fontWeight: FontWeight.w600,
               ),
             ),
@@ -73,7 +69,7 @@ class HomePage extends StatelessWidget {
             const SizedBox(height: 10),
             const Text(
               '기분과 취향에 맞는 한 끼를 찾아봐요.',
-              style: TextStyle(color: Color(0xFF7F6D66), height: 1.5),
+              style: TextStyle(color: AppTheme.mutedColor, height: 1.5),
             ),
             const SizedBox(height: 20),
             HomeMealCard(

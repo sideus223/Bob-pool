@@ -85,7 +85,7 @@ class _PostWritePageState extends State<PostWritePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFDF9),
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: Text(
           _editing == null ? '글쓰기' : '게시글 수정',

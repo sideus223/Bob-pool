@@ -92,12 +92,19 @@
 
 ### 주요 화면
 
-홈은 Android 실기기에서 촬영한 화면이며, 추천·레시피는 Pixel 7 에뮬레이터에서 촬영한 데모 화면입니다.
+기분·상황·맵기·예산을 한 화면에서 고를 수 있습니다. 추천 전 ‘애니메이션 건너뛰기’를 체크하면 음식 결과를 바로 보여주고, 체크하지 않으면 밥풀이가 자기 밥솥 버튼을 누른 뒤 결과로 전환합니다.
+
+흰 배경과 Noto Sans KR로 통일한 현재 Flutter 화면을 로컬에서 렌더링했습니다. 게시판은 예시 데이터입니다.
 
 <p>
-  <img src="docs/images/home.png" width="220" alt="밥풀 홈 화면">
-  <img src="docs/images/recommendation.png" width="220" alt="추천 결과와 추천 이유">
-  <img src="docs/images/recipe.png" width="220" alt="레시피 화면">
+  <img src="docs/images/visual-refresh/home-current.png" width="220" alt="새 홈 화면">
+  <img src="docs/images/visual-refresh/recommendation-current.png" width="220" alt="기분·상황·맵기·예산을 한눈에 고르는 추천 화면">
+  <img src="docs/images/visual-refresh/random-current.png" width="220" alt="랜덤 추천과 애니메이션 건너뛰기 설정">
+</p>
+<p>
+  <img src="docs/images/visual-refresh/result-current.png" width="220" alt="음식 추천 결과와 결정 버튼">
+  <img src="docs/images/visual-refresh/board-current.png" width="220" alt="밥풀이 프로필을 적용한 게시판">
+  <img src="docs/images/visual-refresh/mypage-current.png" width="220" alt="새 마이페이지">
 </p>
 
 <br><br><br>
@@ -217,12 +224,19 @@ Android 7.0 이상에서 사용할 수 있습니다. 서버 연결 APK는 설치
 
 ### 主な画面
 
-ホームはAndroid実機で撮影した画面、推薦・レシピはPixel 7エミュレーターで撮影したデモ画面です。アプリのUIは韓国語です。
+気分・食事シーン・辛さ・予算を一つの画面で選べます。推薦前にアニメーションのスキップを選ぶと料理をすぐに表示し、選ばなければマスコットが自分の炊飯器のボタンを押してから結果に切り替わります。
+
+白い背景とNoto Sans KRで統一した現在のFlutter画面をローカルで描画しました。掲示板はサンプルデータです。アプリのUIは韓国語です。
 
 <p>
-  <img src="docs/images/home.png" width="220" alt="ホーム画面">
-  <img src="docs/images/recommendation.png" width="220" alt="推薦結果と理由">
-  <img src="docs/images/recipe.png" width="220" alt="レシピ画面">
+  <img src="docs/images/visual-refresh/home-current.png" width="220" alt="ホーム画面">
+  <img src="docs/images/visual-refresh/recommendation-current.png" width="220" alt="気分・食事シーン・辛さ・予算の選択">
+  <img src="docs/images/visual-refresh/random-current.png" width="220" alt="ランダム推薦とアニメーション設定">
+</p>
+<p>
+  <img src="docs/images/visual-refresh/result-current.png" width="220" alt="料理の推薦結果">
+  <img src="docs/images/visual-refresh/board-current.png" width="220" alt="掲示板">
+  <img src="docs/images/visual-refresh/mypage-current.png" width="220" alt="マイページ">
 </p>
 
 <br><br><br>
