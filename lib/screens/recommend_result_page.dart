@@ -7,7 +7,6 @@ import '../services/local_recommend_service.dart';
 import '../services/user_menu_preference_service.dart';
 import '../core/app_config.dart';
 import '../widgets/menu_summary_card.dart';
-import '../widgets/recommendation_reason_card.dart';
 import '../widgets/recommendation/result_decision_buttons.dart';
 
 class RecommendResultPage extends StatefulWidget {
@@ -18,7 +17,6 @@ class RecommendResultPage extends StatefulWidget {
 
 class _RecommendResultPageState extends State<RecommendResultPage> {
   MenuModel? _menu;
-  RankedMenu? _ranked;
   RecommendationRequest? _request;
   RecommendationExposure? _exposure;
   final Set<String> _shown = {};
@@ -37,7 +35,6 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
     final args = ModalRoute.of(context)?.settings.arguments;
     if (args is! Map<String, dynamic> || args['menu'] is! MenuModel) return;
     _menu = args['menu'] as MenuModel;
-    _ranked = args['ranked'] as RankedMenu?;
     _random = args['isRandomMode'] == true;
     _exposure = _random ? null : args['exposure'] as RecommendationExposure?;
     if (!_random) {
@@ -102,7 +99,6 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
       }
     }
     MenuModel next;
-    RankedMenu? ranked;
     RecommendationExposure? exposure;
     if (_random) {
       next = await LocalRecommendService.recommendRandom(
@@ -122,9 +118,8 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
         candidates,
         _request!,
       );
-      ranked = choice.result;
       exposure = choice.exposure;
-      next = ranked.menu;
+      next = choice.result.menu;
     }
     final favorite = await UserMenuPreferenceService.isFavoriteMenu(
       next.menuId,
@@ -138,7 +133,6 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
     if (!mounted) return;
     setState(() {
       _menu = next;
-      _ranked = ranked;
       _exposure = exposure;
       _favorite = favorite;
       _selected = false;
@@ -198,9 +192,7 @@ class _RecommendResultPageState extends State<RecommendResultPage> {
                 children: [
                   MenuSummaryCard(menu: menu),
                   const SizedBox(height: 4),
-                  if (_ranked != null)
-                    RecommendationReasonCard(result: _ranked!)
-                  else
+                  if (_random)
                     const Text('전체 메뉴에서 무작위로 골랐어요. 예산·맵기·취향 조건은 적용되지 않아요.'),
                   const SizedBox(height: 12),
                   ListTile(

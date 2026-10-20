@@ -25,7 +25,7 @@ void main() {
       expect(tester.takeException(), isNull);
     },
   );
-  testWidgets('recommend, explain, favorite, select once, recipe and rerank', (
+  testWidgets('recommend, favorite, select once, recipe and rerank', (
     tester,
   ) async {
     tester.view.physicalSize = const Size(1080, 2400);
@@ -45,7 +45,8 @@ void main() {
     await tester.tap(find.text('이 조건으로 추천받기'));
     await tester.pumpAndSettle();
     expect(find.text('나를 위한 추천'), findsOneWidget);
-    expect(find.text('이 메뉴를 추천한 이유'), findsOneWidget);
+    expect(find.text('이 메뉴를 추천한 이유'), findsNothing);
+    expect(find.byTooltip('추천 이유 더보기'), findsNothing);
     final first = tester
         .widget<MenuSummaryCard>(find.byType(MenuSummaryCard))
         .menu

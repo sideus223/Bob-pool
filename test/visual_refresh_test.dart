@@ -19,6 +19,7 @@ import 'package:bp2/services/visual_preferences.dart';
 import 'package:bp2/services/home_hero_image_service.dart';
 import 'package:bp2/widgets/menu_summary_card.dart';
 import 'package:bp2/widgets/recommendation/bobpool_cooker.dart';
+import 'support/phone_preview.dart';
 
 const captureDirectory = String.fromEnvironment('UI_CAPTURE_DIR');
 final boundaryKey = GlobalKey();
@@ -61,6 +62,7 @@ Future<void> capture(WidgetTester tester, String name) async {
     await File(
       '$captureDirectory/$name.png',
     ).writeAsBytes(bytes!.buffer.asUint8List());
+    await writePhonePreview(image, '$captureDirectory/$name-phone.png');
     image.dispose();
   });
 }
@@ -214,6 +216,26 @@ void main() {
     );
     await tester.pumpAndSettle();
     await capture(tester, 'board-current');
+    if (captureDirectory.isNotEmpty) {
+      await tester.runAsync(() async {
+        await writePhoneOverview(
+          captureDirectory,
+          'phone-home-recommendation',
+          [
+            ('home-current', '홈'),
+            ('recommendation-current', '맞춤 추천'),
+            ('random-current', '랜덤 추천'),
+          ],
+        );
+        if (await File('$captureDirectory/result-current.png').exists()) {
+          await writePhoneOverview(captureDirectory, 'phone-result-community', [
+            ('result-current', '추천 결과'),
+            ('board-current', '게시판'),
+            ('mypage-bobpool-profile', '마이페이지'),
+          ]);
+        }
+      });
+    }
     expect(find.text('오늘 점심은 김치찌개로 결정!'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
