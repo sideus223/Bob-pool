@@ -136,7 +136,7 @@ class _RandomMenuPickerPageState extends State<RandomMenuPickerPage>
 
       await animationDone;
       if (mounted) {
-        Navigator.pushNamed(
+        await Navigator.pushNamed(
           context,
           AppRoutes.recommendResult,
           arguments: {

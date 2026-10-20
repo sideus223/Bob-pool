@@ -54,6 +54,18 @@ void main() {
         ),
         1,
       );
+      final cooker = tester.widget<BobpoolCooker>(
+        find.byType(BobpoolCooker, skipOffstage: false),
+      );
+      expect(cooker.animation, isNotNull);
+      expect(cooker.animation!.value, 1);
+      await tester.pageBack();
+      await tester.pumpAndSettle();
+      expect(
+        tester.widget<BobpoolCooker>(find.byType(BobpoolCooker)).animation,
+        isNull,
+      );
+      expect(find.text('아무거나 추천받기'), findsOneWidget);
       expect(tester.takeException(), isNull);
     },
   );
